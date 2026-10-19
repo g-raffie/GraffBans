@@ -155,6 +155,24 @@ notify:
   # The same player triggers the same notice at most once per this time.
   throttle: 10m
 
+appeals:
+  # Show where and how to appeal on ban screens and mute messages (the <appeal> placeholder in the messages
+  # file): the panel's address (web.base-url) and the punishment's code. Turn it on on EVERY server once
+  # the panel runs somewhere and web.base-url is the address players can open.
+  enabled: false
+  # What can be appealed: ban, mute
+  types: [ban, mute]
+  # After a denied appeal, the same punishment can be appealed again after this long.
+  retry-after: 7d
+  # Appeals one address may send per hour.
+  per-hour: 3
+
+discord:
+  # A Discord channel webhook that gets appeal notices: new appeal, the player's replies, the decision.
+  # In Discord: channel settings > Integrations > Webhooks > New Webhook > Copy Webhook URL. Empty = off.
+  # Only the server that runs the panel sends them.
+  appeals-webhook: ""
+
 web:
   # The built-in web panel (staff accounts, appeals). Turn it on on ONE server only: on a network the
   # proxy, otherwise the server itself. All servers share the database, so the panel sees everything.

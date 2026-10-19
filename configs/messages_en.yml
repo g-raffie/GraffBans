@@ -11,9 +11,14 @@ ban-screen: |-
   <gray>By:</gray> <white><operator></white>
   <gray>Time left:</gray> <white><duration></white>
   <gray>Ban ID:</gray> <white>#<id></white>
+  <appeal>
 
 # A separate screen for permanent bans. Empty = ban-screen is used.
 ban-screen-permanent: ""
+
+# Shown as <appeal> when config.yml appeals.enabled is on (ban screen, banned-lobby, muted):
+# <appeal_url> is the panel's appeal page, <appeal_code> the code only this player sees.
+appeal-line: "<gray>Appeal at</gray> <aqua><appeal_url></aqua> <gray>with code</gray> <white><bold><appeal_code></bold></white>"
 
 kick-screen: |-
   <red><bold>You were kicked</bold></red>
@@ -26,9 +31,9 @@ banned-from-server: "<red>You are banned from <server>.</red> <gray>Reason:</gra
 
 # A network-wide ban, but the player may stay on this server (config.yml login.banned-player-servers):
 # shown when they arrive there and when they are banned while online.
-banned-lobby: "<red>You are banned from this network.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <gray>· Ban ID:</gray> <white>#<id></white> <gray>You can only stay on this server.</gray>"
+banned-lobby: "<red>You are banned from this network.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <gray>· Ban ID:</gray> <white>#<id></white> <gray>You can only stay on this server.</gray> <appeal>"
 
-muted: "<red>You are muted.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white>"
+muted: "<red>You are muted.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <appeal>"
 # For permanent mutes. Empty = muted is used.
 muted-permanent: ""
 
@@ -432,6 +437,7 @@ web:
   nav:
     dashboard: "Dashboard"
     logout: "Log out"
+    appeals: "Appeals"
   search:
     placeholder: "Player, UUID or #ID"
     heading: "Search"
@@ -486,7 +492,85 @@ web:
     delete: "Delete"
     delete-help: "Deleting takes it out of the history and off the template ladder. It cannot be undone."
     delete-submit: "Delete for good"
+  appeal:
+    heading: "Appeal a punishment"
+    intro: "Banned or muted? Enter the appeal code from your ban screen or mute message."
+    code: "Appeal code"
+    continue: "Continue"
+    code-help: "Only you see this code, so nobody else can appeal in your name."
+    code-not-found: "No punishment that can be appealed has this code. Check it, or it may have ended already."
+    already-open: "This punishment already has an open appeal. Use the link you got when you sent it."
+    slow-down: "Too many attempts from your address. Wait a while and try again."
+    time-left: "Time left"
+    ended: "ended"
+    text: "Why should the punishment be removed or shortened?"
+    text-help: "Be honest and specific: what happened, and what you will do differently. Between 50 and 4000 characters."
+    contact: "Discord name or e-mail (optional)"
+    submit: "Send appeal"
+    too-short: "Write at least {min} characters."
+    too-long: "Write at most {max} characters."
+    too-soon: "Your last appeal for this punishment was denied. You can appeal again from {date}."
+    bad-contact: "The contact can be at most 128 characters."
+    status-heading: "Your appeal"
+    keep-link: "Keep this page's address: it is the only way back to your appeal."
+    link-not-found: "This appeal link is not valid."
+    reduced-until: "Now ends"
+    conversation: "Conversation"
+    staff: "Staff"
+    reply: "Your answer"
+    send: "Send"
+    reply-sent: "Sent."
+    reply-failed: "Could not send that. Empty, too long (2000 characters), or too many messages: wait a while."
+    closed: "This appeal is closed."
+  appeals:
+    heading: "Appeals"
+    appeal: "Appeal"
+    all: "All"
+    none: "No appeals here."
+    punishment: "Punishment"
+    punishment-gone: "deleted"
+    updated: "Last activity"
+    opened: "Opened"
+    decided-by: "Decided by"
+    reply: "Answer the player (they see it on their appeal page)"
+    reply-failed: "Could not send that (empty or more than 2000 characters)."
+    decision: "Decision"
+    accept: "Accept: remove the punishment"
+    reduce: "Reduce: new duration from now"
+    deny: "Deny"
+    new-duration: "New duration (for reduce)"
+    note: "Note to the player (optional)"
+    decide: "Save decision"
+    already-decided: "This appeal was already decided."
+    accepted-reason: "Appeal #{id} accepted"
+    decided:
+      accepted: "Appeal accepted; the punishment was removed."
+      reduced: "Appeal accepted; the punishment was shortened."
+      denied: "Appeal denied."
+    status:
+      open: "open"
+      accepted: "accepted"
+      reduced: "reduced"
+      denied: "denied"
   error:
     not-found: "This page does not exist."
     forbidden: "Your role cannot do this."
     not-ready: "The server is still starting; try again in a moment."
+
+# Discord appeal notices (config.yml discord.appeals-webhook). Plain text; {player} and {id} are filled in.
+discord:
+  appeal: "Appeal"
+  new-title: "New appeal #{id} from {player}"
+  new-description: "Open it in the panel to answer or decide."
+  reply-title: "{player} answered on appeal #{id}"
+  decided-accepted: "Appeal #{id} from {player} accepted"
+  decided-reduced: "Appeal #{id} from {player}: punishment reduced"
+  decided-denied: "Appeal #{id} from {player} denied"
+  decided-by: "Decided by"
+  note: "Note"
+  appeal-text: "Appeal"
+  contact: "Contact"
+  punishment: "Punishment"
+  by: "Given by"
+  time-left: "Time left"
+  reason: "Reason"

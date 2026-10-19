@@ -11,9 +11,14 @@ ban-screen: |-
   <gray>Yetkili:</gray> <white><operator></white>
   <gray>Kalan süre:</gray> <white><duration></white>
   <gray>Ceza no:</gray> <white>#<id></white>
+  <appeal>
 
 # Kalıcı banlar için ayrı ekran. Boş bırakılırsa ban-screen kullanılır.
 ban-screen-permanent: ""
+
+# config.yml appeals.enabled açıkken <appeal> olarak gösterilir (ban ekranı, banned-lobby, muted):
+# <appeal_url> panelin itiraz sayfası, <appeal_code> sadece bu oyuncunun gördüğü kod.
+appeal-line: "<gray>İtiraz için:</gray> <aqua><appeal_url></aqua> <gray>· kod:</gray> <white><bold><appeal_code></bold></white>"
 
 kick-screen: |-
   <red><bold>Sunucudan atıldın</bold></red>
@@ -26,9 +31,9 @@ banned-from-server: "<red><server> sunucusundan yasaklısın.</red> <gray>Sebep:
 
 # Ağ çapında ban var ama oyuncu bu sunucuda kalabiliyor (config.yml login.banned-player-servers):
 # oraya geldiğinde ve oyundayken banlandığında gösterilir.
-banned-lobby: "<red>Bu ağdan yasaklısın.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <gray>· Ceza no:</gray> <white>#<id></white> <gray>Sadece bu sunucuda kalabilirsin.</gray>"
+banned-lobby: "<red>Bu ağdan yasaklısın.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <gray>· Ceza no:</gray> <white>#<id></white> <gray>Sadece bu sunucuda kalabilirsin.</gray> <appeal>"
 
-muted: "<red>Susturuldun.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white>"
+muted: "<red>Susturuldun.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <appeal>"
 # Kalıcı susturmalar için. Boşsa muted kullanılır.
 muted-permanent: ""
 
@@ -432,6 +437,7 @@ web:
   nav:
     dashboard: "Ana sayfa"
     logout: "Çıkış"
+    appeals: "İtirazlar"
   search:
     placeholder: "Oyuncu, UUID veya #ID"
     heading: "Arama"
@@ -486,7 +492,85 @@ web:
     delete: "Sil"
     delete-help: "Silmek cezayı geçmişten ve şablon merdiveninden çıkarır. Geri alınamaz."
     delete-submit: "Tamamen sil"
+  appeal:
+    heading: "Cezaya itiraz et"
+    intro: "Banlandın veya susturuldun mu? Ban ekranındaki veya susturma mesajındaki itiraz kodunu gir."
+    code: "İtiraz kodu"
+    continue: "Devam"
+    code-help: "Bu kodu sadece sen görürsün; böylece kimse senin adına itiraz edemez."
+    code-not-found: "Bu koda sahip, itiraz edilebilecek bir ceza yok. Kodu kontrol et; ceza bitmiş de olabilir."
+    already-open: "Bu cezanın zaten açık bir itirazı var. Gönderirken aldığın linki kullan."
+    slow-down: "Adresinden çok fazla deneme yapıldı. Biraz bekleyip tekrar dene."
+    time-left: "Kalan süre"
+    ended: "bitti"
+    text: "Ceza neden kaldırılmalı veya kısaltılmalı?"
+    text-help: "Dürüst ve net ol: ne oldu, bundan sonra neyi farklı yapacaksın. 50 ile 4000 karakter arası."
+    contact: "Discord adı veya e-posta (isteğe bağlı)"
+    submit: "İtirazı gönder"
+    too-short: "En az {min} karakter yaz."
+    too-long: "En fazla {max} karakter yaz."
+    too-soon: "Bu ceza için son itirazın reddedildi. {date} tarihinden sonra tekrar itiraz edebilirsin."
+    bad-contact: "İletişim bilgisi en fazla 128 karakter olabilir."
+    status-heading: "İtirazın"
+    keep-link: "Bu sayfanın adresini sakla: itirazına geri dönmenin tek yolu bu."
+    link-not-found: "Bu itiraz linki geçerli değil."
+    reduced-until: "Yeni bitiş"
+    conversation: "Yazışma"
+    staff: "Yetkili"
+    reply: "Cevabın"
+    send: "Gönder"
+    reply-sent: "Gönderildi."
+    reply-failed: "Gönderilemedi. Boş, çok uzun (2000 karakter) ya da çok fazla mesaj: biraz bekle."
+    closed: "Bu itiraz kapandı."
+  appeals:
+    heading: "İtirazlar"
+    appeal: "İtiraz"
+    all: "Hepsi"
+    none: "Burada itiraz yok."
+    punishment: "Ceza"
+    punishment-gone: "silinmiş"
+    updated: "Son hareket"
+    opened: "Açıldı"
+    decided-by: "Karar veren"
+    reply: "Oyuncuya cevap yaz (itiraz sayfasında görür)"
+    reply-failed: "Gönderilemedi (boş veya 2000 karakterden uzun)."
+    decision: "Karar"
+    accept: "Kabul: cezayı kaldır"
+    reduce: "İndir: şu andan itibaren yeni süre"
+    deny: "Reddet"
+    new-duration: "Yeni süre (indirim için)"
+    note: "Oyuncuya not (isteğe bağlı)"
+    decide: "Kararı kaydet"
+    already-decided: "Bu itiraz zaten karara bağlandı."
+    accepted-reason: "İtiraz #{id} kabul edildi"
+    decided:
+      accepted: "İtiraz kabul edildi; ceza kaldırıldı."
+      reduced: "İtiraz kabul edildi; ceza kısaltıldı."
+      denied: "İtiraz reddedildi."
+    status:
+      open: "açık"
+      accepted: "kabul"
+      reduced: "indirildi"
+      denied: "reddedildi"
   error:
     not-found: "Böyle bir sayfa yok."
     forbidden: "Rolün bunu yapamıyor."
     not-ready: "Sunucu hâlâ açılıyor; biraz sonra tekrar dene."
+
+# Discord itiraz bildirimleri (config.yml discord.appeals-webhook). Düz metin; {player} ve {id} doldurulur.
+discord:
+  appeal: "İtiraz"
+  new-title: "{player} oyuncusundan yeni itiraz #{id}"
+  new-description: "Cevaplamak veya karar vermek için panelde aç."
+  reply-title: "{player}, itiraz #{id} için cevap yazdı"
+  decided-accepted: "{player} oyuncusunun itirazı #{id} kabul edildi"
+  decided-reduced: "{player} oyuncusunun itirazı #{id}: ceza indirildi"
+  decided-denied: "{player} oyuncusunun itirazı #{id} reddedildi"
+  decided-by: "Karar veren"
+  note: "Not"
+  appeal-text: "İtiraz"
+  contact: "İletişim"
+  punishment: "Ceza"
+  by: "Veren"
+  time-left: "Kalan süre"
+  reason: "Sebep"
