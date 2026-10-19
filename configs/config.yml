@@ -192,14 +192,17 @@ web:
   # Panel roles. Staff get one with /graffbans web register (in game: their highest
   # graffbans.web.<role> permission; from the console: given in the command).
   # rank: higher may manage lower. limits-group: the config.yml limits group their panel punishments follow.
+  # require-2fa: members must turn on two-step login (an authenticator app) before they can use the panel.
   # Abilities: view, punish, punish.template-only, unpunish, modify, delete, appeals.reply, appeals.decide,
   #            see-ips, audit, users
   roles:
     owner:
       rank: 100
+      require-2fa: true
       abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, see-ips, audit, users]
     admin:
       rank: 75
+      require-2fa: true
       abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, see-ips, audit]
     moderator:
       rank: 50
@@ -209,3 +212,14 @@ web:
       rank: 25
       limits-group: helper
       abilities: [view, punish.template-only, appeals.reply]
+  # How the panel looks. /graffbans reload applies it.
+  theme:
+    # Shown in the header and page titles. Empty = "GraffBans Panel".
+    server-name: ""
+    # An https:// image address, or the name of an image file you put in plugins/GraffBans/web/ (e.g. logo.png).
+    logo: ""
+    # Main colour of buttons and links.
+    accent-color: "#e5484d"
+    # auto (follows the visitor's system), dark or light.
+    mode: auto
+    # Extra styling: put a custom.css file in plugins/GraffBans/web/; it is loaded after the panel's own.
