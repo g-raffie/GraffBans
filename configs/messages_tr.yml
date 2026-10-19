@@ -20,6 +20,9 @@ ban-screen-permanent: ""
 # <appeal_url> panelin itiraz sayfası, <appeal_code> sadece bu oyuncunun gördüğü kod.
 appeal-line: "<gray>İtiraz için:</gray> <aqua><appeal_url></aqua> <gray>· kod:</gray> <white><bold><appeal_code></bold></white>"
 
+# Yeni bir GraffBans sürümü çıktı (config.yml update-check); graffbans.notify.update yetkisi olanlara girişte gösterilir.
+update-available: "<gold>GraffBans <version> çıktı</gold> <gray>(sende <current> var).</gray> <open><aqua><u>İndir</u></aqua></open> <gray><notes></gray>"
+
 kick-screen: |-
   <red><bold>Sunucudan atıldın</bold></red>
 

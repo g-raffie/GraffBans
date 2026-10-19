@@ -20,6 +20,9 @@ ban-screen-permanent: ""
 # <appeal_url> is the panel's appeal page, <appeal_code> the code only this player sees.
 appeal-line: "<gray>Appeal at</gray> <aqua><appeal_url></aqua> <gray>with code</gray> <white><bold><appeal_code></bold></white>"
 
+# A newer GraffBans is out (config.yml update-check); shown to staff with graffbans.notify.update when they join.
+update-available: "<gold>GraffBans <version> is out</gold> <gray>(you have <current>).</gray> <open><aqua><u>Download</u></aqua></open> <gray><notes></gray>"
+
 kick-screen: |-
   <red><bold>You were kicked</bold></red>
 

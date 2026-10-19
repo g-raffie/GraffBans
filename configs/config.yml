@@ -155,6 +155,11 @@ notify:
   # The same player triggers the same notice at most once per this time.
   throttle: 10m
 
+# Check twice a day whether a newer GraffBans is out, and tell the console and staff with
+# graffbans.notify.update when they join. Only a small public file on GitHub is downloaded; nothing about
+# your server is sent.
+update-check: true
+
 appeals:
   # Show where and how to appeal on ban screens and mute messages (the <appeal> placeholder in the messages
   # file): the panel's address (web.base-url) and the punishment's code. Turn it on on EVERY server once

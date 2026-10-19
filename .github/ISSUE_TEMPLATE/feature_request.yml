@@ -1,0 +1,38 @@
+name: Feature request
+description: Something GraffBans should do, or do differently.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        During the beta, bug fixes come first; good ideas are collected for the releases after.
+        Coming from LiteBans and missing something it had? Say which LiteBans feature, that helps a lot.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want to do that you cannot do now?
+      description: Describe the situation on your server, not only the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How could GraffBans help?
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Punishment commands
+        - Templates
+        - Network / cross-server sync
+        - LiteBans import
+        - Web panel
+        - Appeals / Discord
+        - Messages / config
+        - Other
+  - type: input
+    id: setup
+    attributes:
+      label: Your setup (optional)
+      description: "e.g. Velocity network, 5 servers, ~200 players, MariaDB"

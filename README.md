@@ -4,8 +4,10 @@
 Bans, mutes, warnings and kicks with punishment ladders, staff rank limits, alt detection and
 network-wide sync, all in one jar.
 
-> **Status:** in development, not released yet. This repository holds the documentation
-> ([Wiki](https://github.com/g-raffie/GraffBans/wiki)) and the default configuration files ([`configs/`](configs)).
+> **Open beta: free to use.** Download it from BuiltByBit (link coming), report problems in the
+> [issues](https://github.com/g-raffie/GraffBans/issues). This repository holds the documentation
+> ([Wiki](https://github.com/g-raffie/GraffBans/wiki)), the default configuration files ([`configs/`](configs))
+> and the [changelog](CHANGELOG.md).
 
 ---
 
@@ -29,7 +31,7 @@ network-wide sync, all in one jar.
 - **Easy to switch to.** Staff keep the commands they already know, and an existing LiteBans setup
   moves over with one command (see [Switching from LiteBans](https://github.com/g-raffie/GraffBans/wiki/Switching-from-LiteBans)).
 
-**In development:** a built-in web panel (staff accounts with two-step login, punishing from the browser, a
+**New in the beta:** a built-in web panel (staff accounts with two-step login, punishing from the browser, a
 public ban list you can put on your own site) and ban appeals with Discord notices. **Coming next:** player
 reports and a Discord bot.
 
@@ -50,8 +52,8 @@ reports and a Discord bot.
 | Server | Lockdown that survives restarts, per-server or network-wide |
 | Networks | Velocity proxy + backends, server-scoped punishments, move-to-another-server instead of disconnect, an optional lobby that banned players may still join, sync across instances |
 | Chat | Muted players cannot dodge with `/msg`, `/r`, `/mail` and similar (configurable, blocks `/plugin:command` too) |
-| Web panel *(in development)* | Built in, no PHP or web server needed. Staff accounts tied to Minecraft accounts, roles, two-step login, player and punishment pages, punishing with the same rules as in game, public ban list, embeddable in your site, your logo and colours |
-| Appeals *(in development)* | A code on the ban screen proves the player owns the account; conversation with staff; accept, reduce or deny; Discord notices |
+| Web panel | Built in, no PHP or web server needed. Staff accounts tied to Minecraft accounts, roles, two-step login, player and punishment pages, punishing with the same rules as in game, public ban list, embeddable in your site, your logo and colours |
+| Appeals | A code on the ban screen proves the player owns the account; conversation with staff; accept, reduce or deny; Discord notices |
 
 ---
 
@@ -95,6 +97,28 @@ Full lists: [Commands](https://github.com/g-raffie/GraffBans/wiki/Commands) ·
 
 ---
 
+## The beta
+
+GraffBans is in **open beta**: free to use on any server while the beta lasts.
+
+- **Free now, paid later.** GraffBans 1.0 will be sold on BuiltByBit. Beta releases keep working after that,
+  but get no more updates.
+- **Thank you for helping.** Beta testers who report a confirmed bug or a useful suggestion in the
+  [issues](https://github.com/g-raffie/GraffBans/issues) get GraffBans 1.0 for free.
+- **Back up your database** before installing or updating; this is a beta.
+- **Found a security problem?** Report it privately, see [SECURITY.md](SECURITY.md).
+
+The beta ends with 1.0 when all of this is true:
+- at least 5 servers have used it for 2 weeks or more, at least one of them a Velocity network;
+- no open issue labelled `critical`;
+- at least 3 real moves from LiteBans went through without problems;
+- a week without a new critical bug after the last beta release.
+
+Updates: GraffBans tells the console (and staff with `graffbans.notify.update`) when a newer beta is out.
+`update-check: false` in config.yml turns that off.
+
+---
+
 ## Documentation
 
 | Page | |
@@ -118,4 +142,4 @@ Default files: [`config.yml`](configs/config.yml) · [`messages_en.yml`](configs
 
 ---
 
-© graffie. All rights reserved.
+© graffie. All rights reserved. The beta is free to use under the [GraffBans Beta License](LICENSE.md).

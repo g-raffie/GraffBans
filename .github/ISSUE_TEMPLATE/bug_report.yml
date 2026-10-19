@@ -1,0 +1,91 @@
+name: Bug report
+description: Something does not work as it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing the GraffBans beta! **Security problems go to the [Security tab](https://github.com/g-raffie/GraffBans/security), not here.**
+        Please check the [Troubleshooting page](https://github.com/g-raffie/GraffBans/wiki/Troubleshooting) and the open issues first.
+  - type: input
+    id: version
+    attributes:
+      label: GraffBans version
+      description: "`/graffbans info` shows it, e.g. 0.1.0-beta.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: setup
+    attributes:
+      label: Setup
+      options:
+        - Single Paper server
+        - Velocity network (GraffBans on proxy and backends)
+        - Velocity network (GraffBans only on the proxy)
+        - Folia
+        - Other (explain below)
+    validations:
+      required: true
+  - type: input
+    id: software
+    attributes:
+      label: Server software and versions
+      description: "e.g. Paper 1.21.4 build 200, Velocity 3.5.1, Java 21"
+    validations:
+      required: true
+  - type: dropdown
+    id: database
+    attributes:
+      label: Database
+      options:
+        - H2 (default)
+        - MariaDB
+        - MySQL
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Punishment commands
+        - Templates
+        - Network / cross-server sync
+        - LiteBans import
+        - Web panel
+        - Appeals / Discord
+        - Messages / config
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. /ban Steve 1d test
+        2. Steve joins another server
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console output
+      description: The lines around the problem, especially anything with "GraffBans" or an exception. Remove passwords and IP addresses.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I use the newest beta release.
+          required: true
+        - label: I removed passwords, webhook addresses and player IPs from what I pasted.
+          required: true
