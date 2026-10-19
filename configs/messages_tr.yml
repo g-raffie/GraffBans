@@ -585,6 +585,16 @@ web:
     password-submit: "Şifreyi değiştir"
     password-changed: "Şifre değişti. Diğer bütün cihazlardan çıkış yapıldı."
     wrong-password: "Şu anki şifre doğru değil."
+  public:
+    bans: "Banlar"
+    mutes: "Susturmalar"
+    warnings: "Uyarılar"
+    kicks: "Atmalar"
+    appeal: "İtiraz"
+    search: "Oyuncu ara"
+    until: "Bitiş"
+    empty: "Burada bir şey yok."
+    no-player: "Bu adla giren bir oyuncu yok."
   error:
     not-found: "Böyle bir sayfa yok."
     forbidden: "Rolün bunu yapamıyor."

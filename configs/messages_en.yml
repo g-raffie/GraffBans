@@ -585,6 +585,16 @@ web:
     password-submit: "Change password"
     password-changed: "Password changed. You were logged out everywhere else."
     wrong-password: "The current password is not right."
+  public:
+    bans: "Bans"
+    mutes: "Mutes"
+    warnings: "Warnings"
+    kicks: "Kicks"
+    appeal: "Appeal"
+    search: "Find a player"
+    until: "Until"
+    empty: "Nothing here."
+    no-player: "No player with that name has joined."
   error:
     not-found: "This page does not exist."
     forbidden: "Your role cannot do this."

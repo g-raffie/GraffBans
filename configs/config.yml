@@ -212,6 +212,12 @@ web:
       rank: 25
       limits-group: helper
       abilities: [view, punish.template-only, appeals.reply]
+  # A public ban list at <base-url>/bans (also mutes, warnings, kicks and a player search), like a LiteBans web
+  # page. IP addresses and silent (-s) punishments are never shown. Appeals work whether this is on or not.
+  public-pages: false
+  # Sites that may show the public pages (ban list, appeal form) inside an iframe on their own pages, e.g.
+  # ["https://myserver.com"]. Staff pages can never be put in an iframe. [] = no site may.
+  embed-allowed-sites: []
   # How the panel looks. /graffbans reload applies it.
   theme:
     # Shown in the header and page titles. Empty = "GraffBans Panel".
