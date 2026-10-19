@@ -69,6 +69,11 @@ punish:
   not-own: "<red>Sadece kendi verdiğin cezaları kaldırabilir veya değiştirebilirsin.</red>"
   # Aynı yerde geçerli bir ban/susturma varken yenisi verildiğinde (graffbans.override) eskisine yazılan kaldırma sebebi.
   replaced-reason: "Yeni bir cezayla değiştirildi"
+  # config.yml warnings.actions bir oyuncu için çalıştı (uyarıyı verene gösterilir).
+  warning-actions: "<gray><target> artık <white><count></white> uyarıya sahip; config.yml'deki uyarı eylemleri çalıştırıldı.</gray>"
+  # warnings.clear-after-action oyuncunun uyarılarını kaldırdı.
+  warnings-cleared: "<gray><target> oyuncusunun <count> uyarısı silindi.</gray>"
+  warnings-cleared-reason: "Uyarı sınırına ulaşıldı"
 
 error:
   no-permission: "<red>Bu komutu kullanma yetkin yok.</red>"

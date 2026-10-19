@@ -68,6 +68,11 @@ punish:
   not-own: "<red>You can only remove or change punishments you issued yourself.</red>"
   # Stored as the removal reason when a new ban or mute replaces one already in effect (graffbans.override).
   replaced-reason: "Replaced by a new punishment"
+  # config.yml warnings.actions ran for a player (shown to whoever gave the warning).
+  warning-actions: "<gray><target> now has <white><count></white> warning(s); the warning actions in config.yml were run.</gray>"
+  # warnings.clear-after-action removed the player's warnings.
+  warnings-cleared: "<gray><target>'s <count> warning(s) were cleared.</gray>"
+  warnings-cleared-reason: "Warning limit reached"
 
 error:
   no-permission: "<red>You do not have permission to use this command.</red>"

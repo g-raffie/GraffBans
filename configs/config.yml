@@ -54,6 +54,25 @@ mutes:
   # true = also block the same commands with a plugin prefix, e.g. "/minecraft:me" or "/essentials:msg".
   prevent-bypass: true
 
+warnings:
+  # How long a warning given without a duration counts, e.g. 30d. "permanent" = until it is removed.
+  # "/warn Bob 7d spam" and "/warn Bob duration:permanent spam" still set their own.
+  expire-after: permanent
+  # Commands run when a warning brings a player to a number of warnings in effect (the new one included):
+  #   '<count>:<command>'   exactly that many,   '<count>+:<command>'   that many or more.
+  # Filled in: $player (name), $playerUUID, $reason (of this warning), $list (reasons of all warnings in
+  # effect), $count, $id, $executor, $silent (true/false; "-s:$silent" keeps a silent warning's action silent).
+  # A command starting with "console:" is always run by the console. Template actions run after these.
+  # Example (remove the # to use it):
+  # actions:
+  #   - '3:/kick -s:$silent $player Final warning: $reason'
+  #   - '4+:/tempban -s:$silent $player 1d Reached $count warnings: $list'
+  actions: []
+  # true = the console runs the actions; false = whoever gave the warning does (with their permissions).
+  actions-as-console: false
+  # true = after an action ran, the player's warnings in effect are removed, so counting starts again.
+  clear-after-action: false
+
 security:
   # true = only the console sees IP addresses. Players can still use /dupeip (they see the accounts),
   # and a ban on a bare IP is announced without the address. Protects player IPs if an operator

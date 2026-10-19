@@ -37,7 +37,8 @@ network-wide sync, all in one jar.
 
 | Area | What you get |
 |---|---|
-| Punishments | Bans, mutes, warnings, kicks; permanent or timed; IP and IP-range (`1.2.3.*`) punishments; expiring warnings; silent and console-only modes |
+| Punishments | Bans, mutes, warnings, kicks; permanent or timed; IP and IP-range (`1.2.3.*`) punishments; silent and console-only modes |
+| Warnings | Expiring warnings, and automatic consequences at a number of warnings (e.g. a kick at 3, a 1-day ban from 4 on) |
 | Editing | Change reason or duration in place, delete from history, replace a shorter punishment with a longer one |
 | Targets | Player name, UUID (also for players who never joined) or punishment number (`#123`) |
 | Templates | Ladders for bans, mutes, warnings and kicks; per-step reason, screen, announcement and commands; shared ladders with weights; offences that expire |
@@ -95,7 +96,7 @@ Full lists: [Commands](https://github.com/g-raffie/GraffBans/wiki/Commands) ·
 | Page | |
 |---|---|
 | [Installation](https://github.com/g-raffie/GraffBans/wiki/Installation) | Single server and network setup |
-| [Configuration](https://github.com/g-raffie/GraffBans/wiki/Configuration) | Every `config.yml` section explained |
+| [Configuration](https://github.com/g-raffie/GraffBans/wiki/Configuration) | Every `config.yml` section explained, including automatic actions on warnings |
 | [Commands](https://github.com/g-raffie/GraffBans/wiki/Commands) | All commands |
 | [Command Syntax](https://github.com/g-raffie/GraffBans/wiki/Command-Syntax) | Durations, flags, targets, punishment numbers |
 | [Permissions](https://github.com/g-raffie/GraffBans/wiki/Permissions) | All permission nodes |
