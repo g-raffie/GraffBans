@@ -58,7 +58,7 @@ network-wide sync, all in one jar.
 | Server | Paper 1.20.6 and newer (tested on 1.20.6 and 26.x), Folia (experimental) |
 | Proxy | Velocity 3.5+ and 4.x |
 | Java | 21 or newer (Paper 26.x and Velocity 4.x need Java 25 themselves) |
-| Database | H2 (built in, nothing to set up), MariaDB 10.6+, MySQL 8 |
+| Database | H2 (built in, nothing to set up), MariaDB 10.6+, MySQL 8; move from H2 to MariaDB / MySQL later with one command |
 | Permissions | Any permission plugin |
 
 Not supported: Spigot / CraftBukkit, BungeeCord / Waterfall, Fabric, PostgreSQL, Minecraft older than 1.20.6.

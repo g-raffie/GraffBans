@@ -120,7 +120,7 @@ usage:
   mutelist: "<red>Usage: /mutelist [page]</red>"
   warnlist: "<red>Usage: /warnlist [page]</red>"
   lockdown: "<gray>Usage: /lockdown <reason> [server:<name>] · /lockdown end [server:<name>]</gray>"
-  graffbans: "<red>Usage: /graffbans reload | import litebans [--dry-run] | allow | unlink | broadcast | info | servers | add-login | reset-templates | reset-database</red>"
+  graffbans: "<red>Usage: /graffbans reload | import litebans|h2 [--dry-run] | allow | unlink | broadcast | info | servers | add-login | reset-templates | reset-database</red>"
   graffbans-allow: "<red>Usage: /graffbans allow <add|check|remove> <player></red> <gray>(may join although their IP is banned on another account)</gray>"
   graffbans-unlink: "<red>Usage: /graffbans unlink <player></red> <gray>(forgets their IPs, so /dupeip no longer links them)</gray>"
   graffbans-broadcast: "<red>Usage: /graffbans broadcast <message> [broadcast-type:<type>]</red> <gray>(colours like <red>red</red> or &c, \\n for a new line)</gray>"
@@ -278,8 +278,19 @@ import:
     bad-duration: "<yellow>Template <white><template></white> skipped: unreadable duration <detail>.</yellow>"
     # A template's own ban screen, actions, flags or permission; set the ban screen in the messages file instead.
     left-out-options: "<yellow>Template <white><template></white> converted without:</yellow> <white><detail></white> <gray>(GraffBans does not have these; the ban screen is ban-screen in the messages file)</gray>"
+  # /graffbans import h2: GraffBans' own H2 file (database.mv.db) into the MySQL/MariaDB database it now uses.
+  h2:
+    started: "<gray>Copying GraffBans' H2 file into the new database. You get a message when it is done.</gray>"
+    started-dry-run: "<gray>Dry run: reading GraffBans' H2 file without writing anything.</gray>"
+    done: "<green>H2 import finished. Copied:</green>"
+    done-dry-run: "<yellow>Dry run finished, nothing was written. Without --dry-run it would copy:</yellow>"
+    table: "<gray><table>:</gray> <white><count></white>"
+    after: "<gray>Punishment numbers stayed the same. Players, IP and name history the new database already had were kept. The H2 file was left in place; delete it once everything looks right.</gray>"
   error:
     already-running: "<red>An import is already running.</red>"
+    h2-own-same: "<red>GraffBans still uses its H2 file.</red> <gray>Set database.type to mysql or mariadb in config.yml, restart, then run /graffbans import h2.</gray>"
+    h2-own-not-found: "<red>GraffBans' H2 file was not found:</red> <gray><error></gray>"
+    h2-target-not-empty: "<red>The new database already has punishments, so the H2 file is not copied into it</red> <gray>(punishment numbers would clash: <error>). Use an empty database, or /graffbans reset-database there first.</gray>"
     folder-not-found: "<red>LiteBans' files were not found.</red> <gray>Put the LiteBans folder in plugins/ or set import.litebans-folder in config.yml. (<error>)</gray>"
     read-config: "<red>Could not read a LiteBans file:</red> <gray><error></gray>"
     unsupported-driver: "<red>This LiteBans database type cannot be imported:</red> <gray><error></gray>"

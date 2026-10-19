@@ -121,7 +121,7 @@ usage:
   mutelist: "<red>Kullanım: /mutelist [sayfa]</red>"
   warnlist: "<red>Kullanım: /warnlist [sayfa]</red>"
   lockdown: "<gray>Kullanım: /lockdown <sebep> [server:<ad>] · /lockdown end [server:<ad>]</gray>"
-  graffbans: "<red>Kullanım: /graffbans reload | import litebans [--dry-run] | allow | unlink | broadcast | info | servers | add-login | reset-templates | reset-database</red>"
+  graffbans: "<red>Kullanım: /graffbans reload | import litebans|h2 [--dry-run] | allow | unlink | broadcast | info | servers | add-login | reset-templates | reset-database</red>"
   graffbans-allow: "<red>Kullanım: /graffbans allow <add|check|remove> <oyuncu></red> <gray>(IP'si başka bir hesapta banlı olsa da girebilir)</gray>"
   graffbans-unlink: "<red>Kullanım: /graffbans unlink <oyuncu></red> <gray>(IP'lerini unutur, /dupeip artık bağlamaz)</gray>"
   graffbans-broadcast: "<red>Kullanım: /graffbans broadcast <mesaj> [broadcast-type:<tür>]</red> <gray>(<red>red</red> ya da &c gibi renkler, yeni satır için \\n)</gray>"
@@ -279,8 +279,19 @@ import:
     bad-duration: "<yellow><white><template></white> şablonu atlandı: okunamayan süre <detail>.</yellow>"
     # Şablona özel ban ekranı, actions, flags veya permission; ban ekranını mesaj dosyasında ayarla.
     left-out-options: "<yellow><white><template></white> şablonu şunlar olmadan çevrildi:</yellow> <white><detail></white> <gray>(GraffBans'ta bunlar yok; ban ekranı mesaj dosyasındaki ban-screen)</gray>"
+  # /graffbans import h2: GraffBans'ın kendi H2 dosyası (database.mv.db), artık kullandığı MySQL/MariaDB'ye.
+  h2:
+    started: "<gray>GraffBans'ın H2 dosyası yeni veritabanına kopyalanıyor. Bitince mesaj gelecek.</gray>"
+    started-dry-run: "<gray>Deneme çalıştırması: GraffBans'ın H2 dosyası okunuyor, hiçbir şey yazılmayacak.</gray>"
+    done: "<green>H2 aktarımı tamamlandı. Kopyalananlar:</green>"
+    done-dry-run: "<yellow>Deneme bitti, hiçbir şey yazılmadı. --dry-run olmadan kopyalanacaklar:</yellow>"
+    table: "<gray><table>:</gray> <white><count></white>"
+    after: "<gray>Ceza numaraları aynı kaldı. Yeni veritabanında zaten olan oyuncu, IP ve isim kayıtları korundu. H2 dosyası yerinde duruyor; her şey doğru görünüyorsa silebilirsin.</gray>"
   error:
     already-running: "<red>Zaten bir aktarma çalışıyor.</red>"
+    h2-own-same: "<red>GraffBans hâlâ kendi H2 dosyasını kullanıyor.</red> <gray>config.yml'de database.type'ı mysql veya mariadb yap, yeniden başlat, sonra /graffbans import h2 yaz.</gray>"
+    h2-own-not-found: "<red>GraffBans'ın H2 dosyası bulunamadı:</red> <gray><error></gray>"
+    h2-target-not-empty: "<red>Yeni veritabanında zaten ceza var, bu yüzden H2 dosyası içine kopyalanmadı</red> <gray>(ceza numaraları çakışırdı: <error>). Boş bir veritabanı kullan ya da önce orada /graffbans reset-database çalıştır.</gray>"
     folder-not-found: "<red>LiteBans dosyaları bulunamadı.</red> <gray>LiteBans klasörünü plugins/ içine koy ya da config.yml'de import.litebans-folder ayarını yap. (<error>)</gray>"
     read-config: "<red>Bir LiteBans dosyası okunamadı:</red> <gray><error></gray>"
     unsupported-driver: "<red>Bu LiteBans veritabanı türünden aktarma yapılamıyor:</red> <gray><error></gray>"
