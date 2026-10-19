@@ -29,7 +29,9 @@ network-wide sync, all in one jar.
 - **Easy to switch to.** Staff keep the commands they already know, and an existing LiteBans setup
   moves over with one command (see [Switching from LiteBans](https://github.com/g-raffie/GraffBans/wiki/Switching-from-LiteBans)).
 
-**Coming next:** a built-in web panel, ban appeals, player reports and a Discord bot.
+**In development:** a built-in web panel (staff accounts with two-step login, punishing from the browser, a
+public ban list you can put on your own site) and ban appeals with Discord notices. **Coming next:** player
+reports and a Discord bot.
 
 ---
 
@@ -48,6 +50,8 @@ network-wide sync, all in one jar.
 | Server | Lockdown that survives restarts, per-server or network-wide |
 | Networks | Velocity proxy + backends, server-scoped punishments, move-to-another-server instead of disconnect, an optional lobby that banned players may still join, sync across instances |
 | Chat | Muted players cannot dodge with `/msg`, `/r`, `/mail` and similar (configurable, blocks `/plugin:command` too) |
+| Web panel *(in development)* | Built in, no PHP or web server needed. Staff accounts tied to Minecraft accounts, roles, two-step login, player and punishment pages, punishing with the same rules as in game, public ban list, embeddable in your site, your logo and colours |
+| Appeals *(in development)* | A code on the ban screen proves the player owns the account; conversation with staff; accept, reduce or deny; Discord notices |
 
 ---
 
@@ -105,6 +109,8 @@ Full lists: [Commands](https://github.com/g-raffie/GraffBans/wiki/Commands) ·
 | [Staff Limits](https://github.com/g-raffie/GraffBans/wiki/Staff-Limits) | Rank limits and cooldowns |
 | [Messages](https://github.com/g-raffie/GraffBans/wiki/Messages) | Editing messages, placeholders, hover and click |
 | [Switching from LiteBans](https://github.com/g-raffie/GraffBans/wiki/Switching-from-LiteBans) | One-command import |
+| [Web Panel](https://github.com/g-raffie/GraffBans/wiki/Web-Panel) | Setting up the panel, HTTPS, roles, two-step login |
+| [Appeals](https://github.com/g-raffie/GraffBans/wiki/Appeals) | Appeals and Discord notices |
 | [Troubleshooting](https://github.com/g-raffie/GraffBans/wiki/Troubleshooting) | Common problems |
 
 Default files: [`config.yml`](configs/config.yml) · [`messages_en.yml`](configs/messages_en.yml) ·
