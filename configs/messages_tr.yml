@@ -24,6 +24,10 @@ kick-screen: |-
 # Proxy arkasında: sunucuya özel ban oyuncuyu o sunucuya sokmadığında gösterilir.
 banned-from-server: "<red><server> sunucusundan yasaklısın.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <gray>· Ceza no:</gray> <white>#<id></white>"
 
+# Ağ çapında ban var ama oyuncu bu sunucuda kalabiliyor (config.yml login.banned-player-servers):
+# oraya geldiğinde ve oyundayken banlandığında gösterilir.
+banned-lobby: "<red>Bu ağdan yasaklısın.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <gray>· Ceza no:</gray> <white>#<id></white> <gray>Sadece bu sunucuda kalabilirsin.</gray>"
+
 muted: "<red>Susturuldun.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white>"
 # Kalıcı susturmalar için. Boşsa muted kullanılır.
 muted-permanent: ""

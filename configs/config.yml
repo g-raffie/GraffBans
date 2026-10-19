@@ -86,6 +86,13 @@ login:
   # true  = let them in (a banned player may slip through while the database is down)
   # false = keep everyone out until the database is back
   allow-on-database-error: true
+  # Servers that players with a network-wide ban may still join, e.g. a lobby where they can read why they
+  # are banned (and, later, appeal). Use the same list on the proxy and on every backend.
+  # Behind a Velocity proxy: names from velocity.toml. A banned player joining the network is sent to the
+  #   first of these and cannot switch to any other server; banned while online, they are moved there.
+  # On a server without a proxy: put this server's own server-name here to let banned players in.
+  # A ban only for that server (server:lobby) still keeps them out. [] = banned players cannot join at all.
+  banned-player-servers: []
 
 import:
   # Where the LiteBans plugin folder is, for /graffbans import litebans. Empty = the "LiteBans" folder

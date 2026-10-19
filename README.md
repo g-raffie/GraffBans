@@ -46,7 +46,7 @@ network-wide sync, all in one jar.
 | Alts | Accounts sharing an IP, online IP report, IP history, name history, exceptions for shared households |
 | Staff | Rank limits and cooldowns, staff notices (banned join, muted chat, banned alt joined), rollback |
 | Server | Lockdown that survives restarts, per-server or network-wide |
-| Networks | Velocity proxy + backends, server-scoped punishments, move-to-another-server instead of disconnect, sync across instances |
+| Networks | Velocity proxy + backends, server-scoped punishments, move-to-another-server instead of disconnect, an optional lobby that banned players may still join, sync across instances |
 | Chat | Muted players cannot dodge with `/msg`, `/r`, `/mail` and similar (configurable, blocks `/plugin:command` too) |
 
 ---

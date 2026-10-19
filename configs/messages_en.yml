@@ -24,6 +24,10 @@ kick-screen: |-
 # Behind a proxy: shown when a server-scoped ban keeps the player off one server.
 banned-from-server: "<red>You are banned from <server>.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <gray>· Ban ID:</gray> <white>#<id></white>"
 
+# A network-wide ban, but the player may stay on this server (config.yml login.banned-player-servers):
+# shown when they arrive there and when they are banned while online.
+banned-lobby: "<red>You are banned from this network.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <gray>· Ban ID:</gray> <white>#<id></white> <gray>You can only stay on this server.</gray>"
+
 muted: "<red>You are muted.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white>"
 # For permanent mutes. Empty = muted is used.
 muted-permanent: ""
