@@ -1,0 +1,340 @@
+# GraffBans mesajları (Türkçe). Biçim: MiniMessage — https://docs.advntr.dev/minimessage/format
+# Değişkenler: <target> cezalı oyuncu, <id> ceza numarası, <reason> sebep, <operator> cezayı veren,
+# <duration> kalan süre, <scope> sunucu
+
+date-format: "dd.MM.yyyy HH:mm"
+
+ban-screen: |-
+  <red><bold>Sunucudan yasaklandın</bold></red>
+
+  <gray>Sebep:</gray> <white><reason></white>
+  <gray>Yetkili:</gray> <white><operator></white>
+  <gray>Kalan süre:</gray> <white><duration></white>
+  <gray>Ceza no:</gray> <white>#<id></white>
+
+# Kalıcı banlar için ayrı ekran (LiteBans banned_message_permanent). Boş bırakılırsa ban-screen kullanılır.
+ban-screen-permanent: ""
+
+kick-screen: |-
+  <red><bold>Sunucudan atıldın</bold></red>
+
+  <gray>Sebep:</gray> <white><reason></white>
+  <gray>Yetkili:</gray> <white><operator></white>
+
+# Proxy arkasında: sunucuya özel ban oyuncuyu o sunucuya sokmadığında gösterilir.
+banned-from-server: "<red><server> sunucusundan yasaklısın.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <gray>· Ceza no:</gray> <white>#<id></white>"
+
+muted: "<red>Susturuldun.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white>"
+# Kalıcı susturmalar için (LiteBans muted_permanent). Boşsa muted kullanılır.
+muted-permanent: ""
+
+warned: "<yellow>Uyarı aldın:</yellow> <white><reason></white> <gray>(<operator>)</gray>"
+
+offline-warning: "<yellow>Sen yokken uyarı aldın:</yellow> <white><reason></white> <gray>(<operator>)</gray>"
+
+login-database-error: "<red>Ceza kontrolü şu an yapılamıyor. Lütfen biraz sonra tekrar dene.</red>"
+
+broadcast:
+  silent-prefix: "<gray>[Sessiz]</gray> "
+  ban: "<red><target></red> <gray>kalıcı olarak yasaklandı. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
+  tempban: "<red><target></red> <gray><white><duration></white> süreyle yasaklandı. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
+  mute: "<gold><target></gold> <gray>kalıcı olarak susturuldu. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
+  tempmute: "<gold><target></gold> <gray><white><duration></white> süreyle susturuldu. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
+  # IP ban/susturma duyuruları (LiteBans broadcast_ip_ban vb.). Boşsa ban / tempban / mute / tempmute kullanılır.
+  ipban: ""
+  tempipban: ""
+  ipmute: ""
+  tempipmute: ""
+  warn: "<yellow><target></yellow> <gray>uyarıldı. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
+  kick: "<yellow><target></yellow> <gray>sunucudan atıldı. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
+  unban: "<green><target></green> <gray>yasağı kaldırıldı. Yetkili:</gray> <white><operator></white>"
+  unmute: "<green><target></green> <gray>susturması kaldırıldı. Yetkili:</gray> <white><operator></white>"
+  unwarn: "<green><target></green> <gray>son uyarısı kaldırıldı. Yetkili:</gray> <white><operator></white>"
+  # /graffbans broadcast; <message> yetkilinin yazdığı metin (sadece renk ve biçim).
+  custom: "<message>"
+
+
+punish:
+  default-reason: "Sebep belirtilmedi"
+  already-ban: "<red><target> zaten yasaklı</red> <gray>(#<id>, <operator>: <reason>, kalan: <duration>)</gray>"
+  already-mute: "<red><target> zaten susturulmuş</red> <gray>(#<id>, <operator>: <reason>, kalan: <duration>)</gray>"
+  not-ban: "<red><target> yasaklı değil.</red>"
+  not-mute: "<red><target> susturulmuş değil.</red>"
+  not-warn: "<red><target> oyuncusunun uyarısı yok.</red>"
+  template-step: "<gray>Şablon <white><template></white>: <step>/<steps>. basamak</gray>"
+  # -m: cezanın değiştirildikten sonraki hali.
+  modified: "<green><target> oyuncusunun #<id> cezası değiştirildi:</green> <white><reason></white> <gray>· kalan:</gray> <white><duration></white>"
+  # -d
+  deleted: "<green><target> oyuncusunun <count> cezası silindi.</green> <gray>Geçmişte de görünmeyecek.</gray>"
+  not-own: "<red>Sadece kendi verdiğin cezaları kaldırabilir veya değiştirebilirsin.</red>"
+  # Aynı yerde geçerli bir ban/susturma varken yenisi verildiğinde (graffbans.override) eskisine yazılan kaldırma sebebi.
+  replaced-reason: "Yeni bir cezayla değiştirildi"
+
+error:
+  no-permission: "<red>Bu komutu kullanma yetkin yok.</red>"
+  player-not-found: "<red><input> adında bir oyuncu bu sunucuya hiç girmemiş.</red>"
+  not-online: "<red><target> şu an çevrimiçi değil.</red>"
+  no-known-ip: "<red><target> için bilinen bir IP yok.</red>"
+  exempt: "<red><target> cezalandırılamaz.</red>"
+  invalid-duration: "<red>Geçersiz süre: <input></red> <gray>Örnek: 30m, 1.5h, 1d, 1w, 1mo, 1d12h, 5 days</gray>"
+  invalid-ip: "<red>Geçersiz IP adresi: <input></red>"
+  invalid-server: "<red>Geçersiz sunucu adı: <input></red>"
+  console-only: "<red>Bu komutu sadece konsol kullanabilir.</red>"
+  unsupported-flag: "<red><input> seçeneği desteklenmiyor ya da değeri geçersiz.</red>"
+  flag-not-here: "<red><input> seçeneği bu komutla kullanılamaz.</red>"
+  flag-console-only: "<red><input> seçeneğini sadece konsol kullanabilir.</red>"
+  internal: "<red>Bir hata oluştu, konsolu kontrol et.</red>"
+
+usage:
+  ban: "<red>Kullanım: /ban <oyuncu> [süre|şablon] [sebep] [-s]</red>"
+  tempban: "<red>Kullanım: /tempban <oyuncu> <süre|şablon> [sebep] [-s]</red>"
+  ipban: "<red>Kullanım: /ipban <oyuncu|ip> [süre|şablon] [sebep] [-s]</red>"
+  tempipban: "<red>Kullanım: /tempipban <oyuncu|ip> <süre|şablon> [sebep] [-s]</red>"
+  unban: "<red>Kullanım: /unban <oyuncu|ip|ID> [sebep] [-s]</red>"
+  mute: "<red>Kullanım: /mute <oyuncu> [süre|şablon] [sebep] [-s]</red>"
+  tempmute: "<red>Kullanım: /tempmute <oyuncu> <süre|şablon> [sebep] [-s]</red>"
+  ipmute: "<red>Kullanım: /ipmute <oyuncu|ip> [süre|şablon] [sebep] [-s]</red>"
+  tempipmute: "<red>Kullanım: /tempipmute <oyuncu|ip> <süre|şablon> [sebep] [-s]</red>"
+  unmute: "<red>Kullanım: /unmute <oyuncu|ip|ID> [sebep] [-s]</red>"
+  warn: "<red>Kullanım: /warn <oyuncu> [süre] [sebep] [-s]</red>"
+  kick: "<red>Kullanım: /kick <oyuncu> [sebep] [-s]</red>"
+  history: "<red>Kullanım: /history <oyuncu> [bans|mutes|warnings|kicks] [sayfa]</red>"
+  staffhistory: "<red>Kullanım: /staffhistory <yetkili|console> [bans|mutes|warnings|kicks] [sayfa]</red>"
+  iphistory: "<red>Kullanım: /iphistory <oyuncu> [sayfa]</red>"
+  unwarn: "<red>Kullanım: /unwarn <oyuncu|ID> [sebep] [-s]</red>"
+  warnings: "<red>Kullanım: /warnings [oyuncu] [sayfa]</red>"
+  dupeip: "<red>Kullanım: /dupeip <oyuncu|ip></red>"
+  ipreport: "<red>Kullanım: /ipreport [sayfa]</red>"
+  lastuuid: "<red>Kullanım: /lastuuid <oyuncu></red>"
+  namehistory: "<red>Kullanım: /namehistory <oyuncu></red>"
+  staffrollback: "<red>Kullanım: /staffrollback <yetkili|console> [süre]</red>"
+  prunehistory: "<red>Kullanım: /prunehistory <oyuncu> [süre]</red>"
+  checkban: "<red>Kullanım: /checkban <oyuncu|ip|ID></red>"
+  checkmute: "<red>Kullanım: /checkmute <oyuncu|ip|ID></red>"
+  checkwarn: "<red>Kullanım: /checkwarn <oyuncu|ID></red>"
+  banlist: "<red>Kullanım: /banlist [sayfa]</red>"
+  mutelist: "<red>Kullanım: /mutelist [sayfa]</red>"
+  warnlist: "<red>Kullanım: /warnlist [sayfa]</red>"
+  lockdown: "<gray>Kullanım: /lockdown <sebep> [server:<ad>] · /lockdown end [server:<ad>]</gray>"
+  graffbans: "<red>Kullanım: /graffbans reload | import litebans [--dry-run] | allow | unlink | broadcast | info | servers | add-login | reset-templates | reset-database</red>"
+  graffbans-allow: "<red>Kullanım: /graffbans allow <add|check|remove> <oyuncu></red> <gray>(IP'si başka bir hesapta banlı olsa da girebilir)</gray>"
+  graffbans-unlink: "<red>Kullanım: /graffbans unlink <oyuncu></red> <gray>(IP'lerini unutur, /dupeip artık bağlamaz)</gray>"
+  graffbans-broadcast: "<red>Kullanım: /graffbans broadcast <mesaj> [broadcast-type:<tür>]</red> <gray>(<red>red</red> ya da &c gibi renkler, yeni satır için \\n)</gray>"
+  graffbans-add-login: "<red>Kullanım: /graffbans add-login <isim> <uuid> <ip></red>"
+  graffbans-reset-templates: "<red>Kullanım: /graffbans reset-templates [confirm]</red>"
+  graffbans-reset-database: "<red>Kullanım: /graffbans reset-database [server:<ad>] [mode:delete|deactivate|prune] [exclude:bans|mutes|warnings|kicks]</red>"
+  modify: "<red>Kullanım: /ban -m <oyuncu|ID> [süre] [sebep]</red> <gray>(/mute ve /warn için de)</gray>"
+
+
+history:
+  header: "<gold><target> ceza geçmişi</gold> <gray>(sayfa <page>)</gray>"
+  empty: "<gray>Kayıt yok.</gray>"
+  line: "<gray>#<id> <date></gray> <white><type></white> <gray><length></gray> <white><reason></white> <gray>· <operator> ·</gray> <status>"
+
+staffhistory:
+  header: "<gold><target> tarafından verilen cezalar</gold> <gray>(sayfa <page>)</gray>"
+  empty: "<gray>Kayıt yok.</gray>"
+  line: "<gray>#<id> <date></gray> <white><type></white> <yellow><target></yellow> <gray><length></gray> <white><reason></white> <gray>·</gray> <status>"
+
+iphistory:
+  header: "<gold><target> IP geçmişi</gold> <gray>(sayfa <page>)</gray>"
+  empty: "<gray>Kayıt yok.</gray>"
+  line: "<white><ip></white> <gray>ilk: <first> · son: <last></gray>"
+
+warnings:
+  header: "<gold><target> uyarıları</gold> <gray>(sayfa <page>)</gray>"
+  empty: "<gray>Uyarı yok.</gray>"
+  line: "<gray>#<id> <date></gray> <white><reason></white> <gray>· <operator></gray>"
+
+# /dupeip: IP'deki tüm hesaplar tek satırda, durumuna göre renkli.
+dupeip:
+  header: "<gold><ip> adresindeki hesaplar</gold> <gray>(<count>)</gray>"
+  empty: "<gray><ip> adresinden giren hesap yok.</gray>"
+  online: "<green><name></green>"
+  offline: "<gray><name></gray>"
+  muted: "<gold><name></gold>"
+  banned: "<red><name></red>"
+  separator: "<dark_gray>, </dark_gray>"
+  legend: "<dark_gray>[<green>çevrimiçi</green> <gray>çevrimdışı</gray> <gold>susturulmuş</gold> <red>yasaklı</red>]</dark_gray>"
+
+# /ipreport: IP'sini başka hesaplarla paylaşan çevrimiçi oyuncular. <accounts> /dupeip gibi renklidir.
+ipreport:
+  header: "<gold><online> çevrimiçi oyuncudan <count> tanesi IP'sini başka hesaplarla paylaşıyor</gold> <gray>(sayfa <page>)</gray>"
+  empty: "<gray>Kayıt yok.</gray>"
+  line: "<yellow><player></yellow> <gray>(<count>):</gray> <accounts>"
+  more: "<gray> ve <count> hesap daha</gray>"
+
+lastuuid:
+  line: "<white><target></white> <gray>UUID'si:</gray> <white><uuid></white>"
+
+# /namehistory: GraffBans kurulduğundan beri (ve LiteBans'tan aktarılan) isimler.
+namehistory:
+  header: "<gold><target> isim geçmişi</gold>"
+  empty: "<gray>Kayıt yok.</gray>"
+  line: "<white><name></white> <gray>ilk: <first> · son: <last></gray>"
+
+prunehistory:
+  confirm: "<yellow><target> oyuncusunun bitmiş tüm cezaları (kaldırılmış, süresi dolmuş, kickler) kalıcı olarak silinecek.</yellow> <gray>Devam etmek için <seconds> saniye içinde</gray> <white>/prunehistory <input> confirm</white> <gray>yaz.</gray>"
+  nothing-to-confirm: "<red>Onaylanacak bir işlem yok.</red> <gray>Önce</gray> <white>/prunehistory <input></white> <gray>yaz.</gray>"
+  done: "<green><target> oyuncusunun <count> bitmiş cezası silindi.</green>"
+
+# /graffbans allow, unlink, add-login
+allow:
+  added: "<green><target> artık IP'si başka bir hesapta banlı olsa da girebilir.</green>"
+  already: "<gray><target> zaten izinli.</gray>"
+  removed: "<green><target> artık IP banlarını aşamaz.</green>"
+  is-allowed: "<green><target>, IP'si başka bir hesapta banlı olsa da girebilir.</green>"
+  not-allowed: "<gray><target> IP banlarını aşamaz.</gray>"
+unlink:
+  done: "<green><target> oyuncusunun <count> IP adresi unutuldu.</green> <gray>Aynı IP'den tekrar girerse yeniden bağlanır.</gray>"
+add-login:
+  done: "<green><target> girişi kaydedildi.</green>"
+
+# /graffbans info, servers
+info:
+  header: "<gold>GraffBans</gold>"
+  line: "<gray><key>:</gray> <white><value></white>"
+  server: Sunucu
+  database: Veritabanı
+  pool: Bağlantılar
+  sync: Sunucular arası senkronizasyon
+  templates: Şablonlar
+  language: Dil
+servers:
+  single: "<gray>Sunucular arası senkronizasyon kapalı (H2 veritabanı): bu veritabanını sadece bu sunucu kullanıyor.</gray>"
+  header: "<gold>Bu veritabanında <count> GraffBans kurulumu var</gold> <gray>(son 90 saniyede görülen)</gray>"
+  proxy: "<white><name></white> <gray>(proxy)</gray>"
+  server: "<white><name></white>"
+
+# /graffbans reset-templates, reset-database (sadece konsol)
+reset:
+  templates-confirm: "<yellow>Önceki cezalar artık hiçbir şablon merdiveninde sayılmayacak (kimsenin banı kalkmaz).</yellow> <gray><seconds> saniye içinde</gray> <white>/graffbans reset-templates confirm</white> <gray>yaz.</gray>"
+  templates-done: "<green><count> ceza artık şablon merdivenlerinde sayılmıyor.</green>"
+  database-confirm: "<red>Bu işlem tüm <types> cezalarına <mode> uygulayacak (<scope>).</red> <gray>Devam etmek için <seconds> saniye içinde</gray> <white><command></white> <gray>yaz.</gray>"
+  database-done: "<green>Veritabanı sıfırlandı (<mode>, <scope>): <count> ceza.</green>"
+  nothing-to-confirm: "<red>Onaylanacak bir işlem yok ya da komut farklı.</red>"
+  # mode:deactivate kaldırma sebebi olarak yazar.
+  removed-reason: "Veritabanı sıfırlandı"
+
+staffrollback:
+  done: "<green><target> tarafından verilen <count> ceza kaldırıldı.</green>"
+  none: "<gray><target> tarafından verilmiş, geri alınacak aktif ceza yok.</gray>"
+  # Süre yazılmadığında (yetkilinin verdiği her şey) sorulur.
+  confirm: "<yellow><target> tarafından verilen ve hâlâ süren <count> cezanın hepsi kaldırılacak.</yellow> <gray>Devam etmek için <seconds> saniye içinde</gray> <white>/staffrollback <input> confirm</white> <gray>yaz.</gray>"
+  nothing-to-confirm: "<red>Onaylanacak bir işlem yok.</red> <gray>Önce</gray> <white>/staffrollback <input></white> <gray>yaz.</gray>"
+  # Geri alınan her cezaya kaldırma sebebi olarak yazılır.
+  removed-reason: "Yetkili cezaları geri alındı"
+
+security:
+  # Shown to players instead of an IP address when security.hide-ips is on.
+  hidden-ip: "[IP gizli]"
+
+type:
+  ban: Ban
+  mute: Mute
+  warn: Uyarı
+  kick: Kick
+
+status:
+  active: "<red>aktif</red>"
+  expired: "<gray>süresi doldu</gray>"
+  removed: "<green>kaldırıldı</green>"
+  kick: ""
+
+scope:
+  global: tüm sunucular
+
+duration:
+  permanent: Kalıcı
+  day: "<n>g"
+  hour: "<n>sa"
+  minute: "<n>dk"
+  second: "<n>sn"
+
+# /graffbans import litebans
+import:
+  started: "<gray>LiteBans'tan aktarma başladı. Büyük veritabanlarında birkaç dakika sürebilir; bitince mesaj gelecek.</gray>"
+  started-dry-run: "<gray>Deneme çalıştırması: LiteBans verisi okunuyor, hiçbir şey yazılmayacak.</gray>"
+  connected: "<gray><white><source></white> bağlantısı kuruldu.</gray>"
+  # <step>: players, bans, mutes, warnings veya kicks.
+  progress: "<gray><white><count></white> satır okundu: <step>.</gray>"
+  done: "<green>LiteBans aktarımı tamamlandı.</green>"
+  done-dry-run: "<yellow>Deneme bitti, hiçbir şey yazılmadı. --dry-run olmadan şunlar eklenecek:</yellow>"
+  summary-players: "<gray>Oyuncu:</gray> <white><players></white> <gray>· IP adresi:</gray> <white><ips></white>"
+  summary-type: "<gray><type>:</gray> <white><imported></white> <gray>yeni, <already> zaten aktarılmış</gray>"
+  skipped-wildcard: "<yellow><count> joker IP banı atlandı: adresi okunamadı (GraffBans 192.168.1.* gibi biçimleri alır).</yellow>"
+  skipped-invalid: "<yellow>Geçerli oyuncu UUID'si veya IP'si olmayan <count> satır atlandı.</yellow>"
+  after: "<gray>Tekrar çalıştırmak güvenli: sadece yeni kayıtlar eklenir. Aktarılan susturmalar bu sunucuda hemen, diğerlerinde oyuncu tekrar girince; banlar bir sonraki girişte geçerli olur.</gray>"
+  templates:
+    added: "<green>templates.yml'e <count> LiteBans şablonu eklendi:</green> <white><names></white> <gray>(eski dosya templates.yml.before-litebans-import olarak duruyor)</gray>"
+    would-add: "<yellow>templates.yml'e <count> LiteBans şablonu eklenecek:</yellow> <white><names></white>"
+    already-exists: "<gray><white><template></white> şablonu templates.yml'de zaten var; olduğu gibi bırakıldı.</gray>"
+    unsupported-type: "<yellow><white><template></white> şablonu atlandı: GraffBans'ta henüz <detail> yok.</yellow>"
+    bad-name: "<yellow><white><template></white> şablonu atlandı: adlar sadece a-z, 0-9, _ ve - içerebilir.</yellow>"
+    bad-duration: "<yellow><white><template></white> şablonu atlandı: okunamayan süre <detail>.</yellow>"
+    # Şablona özel ban ekranı, actions, flags veya permission; ban ekranını mesaj dosyasında ayarla.
+    left-out-options: "<yellow><white><template></white> şablonu şunlar olmadan çevrildi:</yellow> <white><detail></white> <gray>(GraffBans'ta bunlar yok; ban ekranı mesaj dosyasındaki ban-screen)</gray>"
+  error:
+    already-running: "<red>Zaten bir aktarma çalışıyor.</red>"
+    folder-not-found: "<red>LiteBans dosyaları bulunamadı.</red> <gray>LiteBans klasörünü plugins/ içine koy ya da config.yml'de import.litebans-folder ayarını yap. (<error>)</gray>"
+    read-config: "<red>Bir LiteBans dosyası okunamadı:</red> <gray><error></gray>"
+    unsupported-driver: "<red>Bu LiteBans veritabanı türünden aktarma yapılamıyor:</red> <gray><error></gray>"
+    h2-file-not-found: "<red>LiteBans H2 kullanıyor ama veritabanı dosyası yok:</red> <gray><error></gray>"
+    h2-in-use: "<red>LiteBans veritabanı dosyası kullanımda.</red> <gray>LiteBans.jar'ı plugins/ klasöründen çıkar, sunucuyu yeniden başlat ve tekrar dene.</gray>"
+    h2-driver: "<red>LiteBans dosyası için H2 sürücüsü yüklenemedi:</red> <gray><error></gray>"
+    h2-download: "<red>LiteBans dosyası için H2 sürücüsü indirilemedi:</red> <gray><error></gray> <gray>h2-1.4.197.jar dosyasını plugins/GraffBans/lib/ içine koyup tekrar dene.</gray>"
+    connect: "<red>LiteBans veritabanına bağlanılamadı:</red> <gray><error></gray>"
+    # LiteBans config.yml'deki kullanıcı adı/şifre reddedildi; örneğin config başka bir makineden kopyalanmış.
+    auth: "<red>LiteBans veritabanı, LiteBans config.yml'deki kullanıcı adını veya şifreyi kabul etmedi.</red> <gray>Oradaki sql bölümünü kontrol et (bu makineden çalışmalı): <error></gray>"
+    invalid-prefix: "<red>LiteBans tablo öneki geçersiz:</red> <gray><error></gray>"
+    no-tables: "<red>LiteBans tabloları bulunamadı:</red> <gray><error></gray>"
+    failed: "<red>Aktarma bir hatayla durdu, konsolu kontrol et.</red> <gray><error></gray>"
+    templates-write: "<red>Cezalar aktarıldı ama şablonlar eklenemedi:</red> <gray><error></gray>"
+
+# /graffbans reload
+reload:
+  done: "<green>GraffBans yeniden yüklendi: config.yml, mesajlar ve <templates> şablon.</green>"
+  # <settings>: değişen ama ancak yeniden başlatınca geçerli olacak ayarlar.
+  restart-needed: "<yellow>Şunlar için sunucuyu yeniden başlat:</yellow> <white><settings></white>"
+  failed: "<red>Yeniden yükleme başarısız, eski ayarlar kullanılmaya devam ediyor:</red> <gray><error></gray>"
+
+# Yetkili grup sınırları (config.yml limits bölümü)
+limits:
+  reduced: "<yellow>Sınırın <limit>, süre buna indirildi.</yellow>"
+  too-long: "<red>En fazla <limit> verebilirsin.</red>"
+  template-required: "<red>Sadece şablonla ceza verebilirsin:</red> <white><templates></white>"
+  cooldown-staff: "<red>/<command> komutunu tekrar kullanmak için <time> bekle.</red>"
+  cooldown-target: "<red><target> az önce ceza aldı. <time> bekle.</red>"
+  cooldown-redo: "<red><target> az önce affedildi (ban/susturma kaldırıldı). <time> bekle.</red>"
+
+# Yetkili bildirimleri (config.yml notify bölümü)
+notify:
+  banned-join: "<dark_gray>[Yetkili]</dark_gray> <red><player></red> <gray>girmeye çalıştı ama banlı:</gray> <white><reason></white> <gray>(<duration>)</gray>"
+  muted-chat: "<dark_gray>[Yetkili]</dark_gray> <yellow><player></yellow> <gray>susturulmuşken yazmaya çalıştı:</gray> <white><message></white>"
+  alts-join: "<dark_gray>[Yetkili]</dark_gray> <yellow><player></yellow> <gray>banlı hesap(lar)la aynı IP'den girdi:</gray> <red><accounts></red>"
+
+# /checkban, /checkmute, /checkwarn
+check:
+  header-ban: "<red><target> banlı:</red>"
+  header-mute: "<red><target> susturulmuş:</red>"
+  header-warn: "<yellow><target> oyuncusunun geçerli uyarıları:</yellow>"
+  line: "<gray>#<id> <date></gray> <white><reason></white> <gray>· <operator> · kalan:</gray> <white><duration></white> <gray>· <scope></gray><ip>"
+  ip-based: " <gray>· IP</gray>"
+  no-id: "<red>Böyle bir ceza yok: <input></red>"
+
+# /banlist, /mutelist, /warnlist (tüm banlar / susturmalar / uyarılar, en yeni önce; LiteBans gibi)
+list:
+  header-ban: "<gold>Banlar</gold> <gray>(sayfa <page>)</gray>"
+  header-mute: "<gold>Susturmalar</gold> <gray>(sayfa <page>)</gray>"
+  header-warn: "<gold>Uyarılar</gold> <gray>(sayfa <page>)</gray>"
+
+
+# /lockdown
+lockdown:
+  # Kilit açıkken giremeyen oyunculara gösterilir.
+  screen: "<red>Sunucu şu an kapalı.</red>\n\n<gray>Sebep:</gray> <white><reason></white>"
+  started: "<yellow>Kilit açıldı (<scope>), <operator> tarafından:</yellow> <white><reason></white> <gray>Sadece graffbans.lockdown.bypass yetkisi olanlar girebilir.</gray>"
+  ended: "<green>Kilit (<scope>) <operator> tarafından kaldırıldı.</green>"
+  not-on: "<gray>Kilit yok (<scope>).</gray>"
+  none: "<gray>Açık kilit yok.</gray>"
+  status: "<yellow>Kilit açık (<scope>), <date> tarihinden beri, <operator> tarafından:</yellow> <white><reason></white>"

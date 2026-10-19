@@ -1,0 +1,130 @@
+# GraffBans configuration
+# /graffbans reload applies most changes; server-name, database and compatibility need a restart.
+
+# Name of this server. Used for server-scoped punishments ("server:skyblock") and shown in history.
+# On a Velocity network, install GraffBans on the proxy and on every backend, all with the same
+# mysql/mariadb database below. Each backend's name must be exactly its name in velocity.toml
+# (e.g. survival, anarchy), so "/ban x server:survival" matches. On the proxy, use e.g. "proxy".
+server-name: survival
+
+# Language of the messages: tr or en. The file messages_<language>.yml in this folder is used.
+language: en
+
+database:
+  # h2      = local file in this folder, no setup needed. Good for a single server.
+  # mysql / mariadb = shared database. Required when several servers share punishments; then
+  #                   punishments reach every server within about 2 seconds (cross-server sync).
+  type: h2
+
+  # Only used for mysql / mariadb.
+  host: localhost
+  port: 3306
+  database: graffbans
+  username: root
+  password: ""
+
+  # Prefix for all GraffBans tables. Change it only before the first start.
+  table-prefix: gb_
+
+  # Maximum database connections.
+  pool-size: 10
+
+mutes:
+  # Muted players cannot use these commands either, so a mute cannot be dodged with private messages.
+  # An entry also blocks everything after it: "/msg" blocks "/msg Bob hi"; "/mail send" blocks
+  # "/mail send ..." but not "/mail read". Add your own plugins' chat commands, or use [] to block none.
+  command-blacklist:
+    - /me
+    - /say
+    - /tell
+    - /whisper
+    - /reply
+    - /pm
+    - /message
+    - /msg
+    - /emsg
+    - /epm
+    - /etell
+    - /ewhisper
+    - /w
+    - /m
+    - /t
+    - /r
+    - /mail send
+  # true = also block the same commands with a plugin prefix, e.g. "/minecraft:me" or "/essentials:msg".
+  prevent-bypass: true
+
+security:
+  # true = only the console sees IP addresses. Players can still use /dupeip (they see the accounts),
+  # and a ban on a bare IP is announced without the address. Protects player IPs if an operator
+  # account is ever taken over.
+  hide-ips: true
+  # true = only the console can use /iphistory.
+  iphistory-console-only: true
+
+login:
+  # If the database cannot be reached when a player joins:
+  # true  = let them in (a banned player may slip through while the database is down)
+  # false = keep everyone out until the database is back
+  allow-on-database-error: true
+
+import:
+  # Where the LiteBans plugin folder is, for /graffbans import litebans. Empty = the "LiteBans" folder
+  # next to GraffBans' own (plugins/LiteBans; on Velocity plugins/litebans). Relative to the server folder.
+  # GraffBans reads LiteBans' config.yml there to find its data (H2 file or MySQL/MariaDB), so usually
+  # nothing needs to be set. LiteBans does not need to be installed or running; better if it is not.
+  litebans-folder: ""
+
+compatibility:
+  # true = LiteBans permission nodes work too: someone with litebans.ban may use /ban, litebans.admin
+  # may use /graffbans import and reload, and so on. Lets a server switch from LiteBans without
+  # changing its permission setup. ".own" nodes map too: litebans.unban.own grants graffbans.unban.own
+  # (only punishments you issued). Changing this needs a restart.
+  litebans-permissions: true
+
+limits:
+  # Staff groups, like LiteBans' durations.limits (its settings can be pasted here as they are).
+  # A staff member is in every group whose permission they have; "none" = everyone.
+  # tempban / tempmute: the longest temporary ban / mute. The highest of their groups applies.
+  #   Permanent punishments are not limited here: they need the /ban or /mute permission.
+  #   Templates are not limited either; use require-template to allow only templates.
+  # cooldown-ban / -mute / -warn / -kick: time between two punishments of that kind, both for the
+  #   staff member and for the target. The lowest of their groups applies; 5s if a group sets none.
+  # cooldown-redo: how soon after an /unban or /unmute the same player may be banned or muted again
+  #   (LiteBans' cooldown_redo). The lowest of their groups applies; 1s if a group sets none.
+  # graffbans.group.unlimited skips duration limits and require-template; graffbans.cooldown.bypass
+  # (or .ban / .mute / .warn / .kick) skips cooldowns. Operators have both. Use "groups: {}" for no limits.
+  groups:
+    moderator:
+      permission: graffbans.group.moderator
+      tempban: 30d
+      tempmute: 30d
+    helper:
+      permission: graffbans.group.helper
+      tempban: 15d
+      tempmute: 7d
+    other:
+      permission: none
+      tempban: 7d
+      tempmute: 1d
+      cooldown-ban: 20s
+      cooldown-kick: 20s
+      cooldown-mute: 20s
+      cooldown-warn: 20s
+      require-template: false
+  # true = a longer duration is cut to the limit; false = it is refused.
+  reduce-to-limit: true
+  # Protects players from being punished twice by the console within this time.
+  console-cooldown: 1s
+
+notify:
+  # Staff notices, like LiteBans' notify section. On a network they reach every server.
+  # A banned player tried to join. Seen with graffbans.notify.banned-join.
+  banned-join: true
+  # A muted player tried to chat or use a blocked command. Seen with graffbans.notify.muted-chat.
+  muted-chat: true
+  # A player joined from the same IP as a banned account. Seen with graffbans.notify.alts;
+  # players with graffbans.exempt.alts never trigger it.
+  alts-on-join: true
+  # The same player triggers the same notice at most once per this time.
+  throttle: 10m

@@ -1,0 +1,67 @@
+# GraffBans punishment templates (ladders) / Ceza şablonları (merdiven)
+#
+# Use / Kullanım:   /ban <player> <template> [reason]     /mute, /warn, /kick the same way
+#                   e.g. /ban Steve hacking   →  1st time 1d, 2nd time 7d, 3rd 30d, then permanent
+#
+# type:          ban, mute, warn or kick
+# reason:        used when the staff member gives no reason
+# ladder:        one step per offence, first offence first; the last one repeats.
+#                A step is a duration: 30m 2h 1d 1w 1mo 1y (or "6 hours", "1 month"), or "permanent",
+#                or '-' (nothing of its own, e.g. the first kicks of a kick template), or a map that sets
+#                any of the options below for that step only: {duration: 7d, reason: "Cheating (2nd time)"}
+# duration:      (optional) for templates without a ladder, or steps without their own duration.
+#                Warnings may have one too: they stop counting when it is over. Kicks have none.
+# expire-ladder: (optional) older punishments stop counting, e.g. 90d. Without it they always count.
+# ip:            (optional) true = punish the player's IP, like /ipban
+# permission:    (optional) needed to use the template, and to remove or change punishments made with it
+# message:       (optional) what the punished player sees instead of ban-screen / kick-screen / muted /
+#                warned in the messages file. MiniMessage with <reason> <duration> <operator> <id> <target>
+# broadcast:     (optional) the announcement instead of the usual one (same placeholders)
+# flags:         (optional) command flags added to the command, e.g. ["-s", "server:survival", "--skip"];
+#                they need no permission
+# actions:       (optional) commands run after the punishment, by the staff member, or by the console when
+#                they start with "console:". $playerName, $playerUUID, $id, $reason, $executor are filled in.
+#                On a Velocity proxy only proxy commands can be run this way.
+#
+# Every earlier punishment with the template counts, also expired and removed (unban) ones, as in
+# LiteBans; for warnings only those still in effect. Use expire-ladder so old offences are forgotten.
+# /staffrollback, /unban -d, /prunehistory and /graffbans reset-templates take punishments off the ladder.
+#
+# template-groups: templates sharing one ladder. Each earlier punishment with a template in "weights"
+# adds its weight; the sum, rounded down, is the step (0 = first). When a punishment moves the group to
+# another step, that step's actions run. Example (remove the # to use it):
+#
+# template-groups:
+#   chat:
+#     type: mute
+#     weights: {spam: 0.5, toxicity: 1}
+#     ladder:
+#       - '-'
+#       - '-'
+#       - {actions: ["console:ban $playerName 1d Repeated chat offences"]}
+#     expire-ladder: 90d
+#
+# Apply changes with /graffbans reload. / Değişiklikleri /graffbans reload ile uygula.
+
+hacking:
+  type: ban
+  reason: "Cheating"
+  ladder: [1d, 7d, 30d, permanent]
+  expire-ladder: 180d
+
+xray:
+  type: ban
+  reason: "X-ray"
+  ladder: [3d, 14d, permanent]
+
+spam:
+  type: mute
+  reason: "Spam"
+  ladder: [30m, 2h, 1d, 7d]
+  expire-ladder: 30d
+
+toxicity:
+  type: mute
+  reason: "Toxic behaviour"
+  ladder: [1h, 1d, 7d, 30d]
+  expire-ladder: 90d

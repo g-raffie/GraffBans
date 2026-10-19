@@ -1,0 +1,340 @@
+# GraffBans messages (English). Format: MiniMessage — https://docs.advntr.dev/minimessage/format
+# Placeholders: <target> punished player, <id> punishment number, <reason>, <operator> who issued it,
+# <duration> time left, <scope> server
+
+date-format: "yyyy-MM-dd HH:mm"
+
+ban-screen: |-
+  <red><bold>You are banned from this server</bold></red>
+
+  <gray>Reason:</gray> <white><reason></white>
+  <gray>By:</gray> <white><operator></white>
+  <gray>Time left:</gray> <white><duration></white>
+  <gray>Ban ID:</gray> <white>#<id></white>
+
+# A separate screen for permanent bans (LiteBans banned_message_permanent). Empty = ban-screen is used.
+ban-screen-permanent: ""
+
+kick-screen: |-
+  <red><bold>You were kicked</bold></red>
+
+  <gray>Reason:</gray> <white><reason></white>
+  <gray>By:</gray> <white><operator></white>
+
+# Behind a proxy: shown when a server-scoped ban keeps the player off one server.
+banned-from-server: "<red>You are banned from <server>.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <gray>· Ban ID:</gray> <white>#<id></white>"
+
+muted: "<red>You are muted.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white>"
+# For permanent mutes (LiteBans muted_permanent). Empty = muted is used.
+muted-permanent: ""
+
+warned: "<yellow>You have been warned:</yellow> <white><reason></white> <gray>(<operator>)</gray>"
+
+offline-warning: "<yellow>You were warned while offline:</yellow> <white><reason></white> <gray>(<operator>)</gray>"
+
+login-database-error: "<red>Punishments cannot be checked right now. Please try again in a moment.</red>"
+
+broadcast:
+  silent-prefix: "<gray>[Silent]</gray> "
+  ban: "<red><target></red> <gray>was permanently banned by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
+  tempban: "<red><target></red> <gray>was banned for <white><duration></white> by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
+  mute: "<gold><target></gold> <gray>was permanently muted by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
+  tempmute: "<gold><target></gold> <gray>was muted for <white><duration></white> by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
+  # IP ban/mute announcements (LiteBans broadcast_ip_ban etc.). Empty = ban / tempban / mute / tempmute are used.
+  ipban: ""
+  tempipban: ""
+  ipmute: ""
+  tempipmute: ""
+  warn: "<yellow><target></yellow> <gray>was warned by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
+  kick: "<yellow><target></yellow> <gray>was kicked by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
+  unban: "<green><target></green> <gray>was unbanned by</gray> <white><operator></white>"
+  unmute: "<green><target></green> <gray>was unmuted by</gray> <white><operator></white>"
+  unwarn: "<green><target></green><gray>'s latest warning was removed by</gray> <white><operator></white>"
+  # /graffbans broadcast; <message> is the staff member's text (colours and styles only).
+  custom: "<message>"
+
+punish:
+  default-reason: "No reason given"
+  already-ban: "<red><target> is already banned</red> <gray>(#<id>, <operator>: <reason>, time left: <duration>)</gray>"
+  already-mute: "<red><target> is already muted</red> <gray>(#<id>, <operator>: <reason>, time left: <duration>)</gray>"
+  not-ban: "<red><target> is not banned.</red>"
+  not-mute: "<red><target> is not muted.</red>"
+  not-warn: "<red><target> has no warnings.</red>"
+  template-step: "<gray>Template <white><template></white>: step <step>/<steps></gray>"
+  # -m: the punishment after the change.
+  modified: "<green>Changed #<id> on <target>:</green> <white><reason></white> <gray>· time left:</gray> <white><duration></white>"
+  # -d
+  deleted: "<green>Deleted <count> punishment(s) of <target>.</green> <gray>They are gone from history.</gray>"
+  not-own: "<red>You can only remove or change punishments you issued yourself.</red>"
+  # Stored as the removal reason when a new ban or mute replaces one already in effect (graffbans.override).
+  replaced-reason: "Replaced by a new punishment"
+
+error:
+  no-permission: "<red>You do not have permission to use this command.</red>"
+  player-not-found: "<red>No player named <input> has ever joined.</red>"
+  not-online: "<red><target> is not online.</red>"
+  no-known-ip: "<red>No known IP for <target>.</red>"
+  exempt: "<red><target> cannot be punished.</red>"
+  invalid-duration: "<red>Invalid duration: <input></red> <gray>Examples: 30m, 1.5h, 1d, 1w, 1mo, 1d12h, 5 days</gray>"
+  invalid-ip: "<red>Invalid IP address: <input></red>"
+  invalid-server: "<red>Invalid server name: <input></red>"
+  console-only: "<red>Only the console can use this command.</red>"
+  unsupported-flag: "<red>The flag <input> is not supported, or its value is invalid.</red>"
+  flag-not-here: "<red>The flag <input> cannot be used with this command.</red>"
+  flag-console-only: "<red>Only the console can use <input>.</red>"
+  internal: "<red>Something went wrong; check the console.</red>"
+
+usage:
+  ban: "<red>Usage: /ban <player> [duration|template] [reason] [-s]</red>"
+  tempban: "<red>Usage: /tempban <player> <duration|template> [reason] [-s]</red>"
+  ipban: "<red>Usage: /ipban <player|ip> [duration|template] [reason] [-s]</red>"
+  tempipban: "<red>Usage: /tempipban <player|ip> <duration|template> [reason] [-s]</red>"
+  unban: "<red>Usage: /unban <player|ip|ID> [reason] [-s]</red>"
+  mute: "<red>Usage: /mute <player> [duration|template] [reason] [-s]</red>"
+  tempmute: "<red>Usage: /tempmute <player> <duration|template> [reason] [-s]</red>"
+  ipmute: "<red>Usage: /ipmute <player|ip> [duration|template] [reason] [-s]</red>"
+  tempipmute: "<red>Usage: /tempipmute <player|ip> <duration|template> [reason] [-s]</red>"
+  unmute: "<red>Usage: /unmute <player|ip|ID> [reason] [-s]</red>"
+  warn: "<red>Usage: /warn <player> [duration] [reason] [-s]</red>"
+  kick: "<red>Usage: /kick <player> [reason] [-s]</red>"
+  history: "<red>Usage: /history <player> [bans|mutes|warnings|kicks] [page]</red>"
+  staffhistory: "<red>Usage: /staffhistory <staff|console> [bans|mutes|warnings|kicks] [page]</red>"
+  iphistory: "<red>Usage: /iphistory <player> [page]</red>"
+  unwarn: "<red>Usage: /unwarn <player|ID> [reason] [-s]</red>"
+  warnings: "<red>Usage: /warnings [player] [page]</red>"
+  dupeip: "<red>Usage: /dupeip <player|ip></red>"
+  ipreport: "<red>Usage: /ipreport [page]</red>"
+  lastuuid: "<red>Usage: /lastuuid <player></red>"
+  namehistory: "<red>Usage: /namehistory <player></red>"
+  staffrollback: "<red>Usage: /staffrollback <staff|console> [duration]</red>"
+  prunehistory: "<red>Usage: /prunehistory <player> [duration]</red>"
+  checkban: "<red>Usage: /checkban <player|ip|ID></red>"
+  checkmute: "<red>Usage: /checkmute <player|ip|ID></red>"
+  checkwarn: "<red>Usage: /checkwarn <player|ID></red>"
+  banlist: "<red>Usage: /banlist [page]</red>"
+  mutelist: "<red>Usage: /mutelist [page]</red>"
+  warnlist: "<red>Usage: /warnlist [page]</red>"
+  lockdown: "<gray>Usage: /lockdown <reason> [server:<name>] · /lockdown end [server:<name>]</gray>"
+  graffbans: "<red>Usage: /graffbans reload | import litebans [--dry-run] | allow | unlink | broadcast | info | servers | add-login | reset-templates | reset-database</red>"
+  graffbans-allow: "<red>Usage: /graffbans allow <add|check|remove> <player></red> <gray>(may join although their IP is banned on another account)</gray>"
+  graffbans-unlink: "<red>Usage: /graffbans unlink <player></red> <gray>(forgets their IPs, so /dupeip no longer links them)</gray>"
+  graffbans-broadcast: "<red>Usage: /graffbans broadcast <message> [broadcast-type:<type>]</red> <gray>(colours like <red>red</red> or &c, \\n for a new line)</gray>"
+  graffbans-add-login: "<red>Usage: /graffbans add-login <name> <uuid> <ip></red>"
+  graffbans-reset-templates: "<red>Usage: /graffbans reset-templates [confirm]</red>"
+  graffbans-reset-database: "<red>Usage: /graffbans reset-database [server:<name>] [mode:delete|deactivate|prune] [exclude:bans|mutes|warnings|kicks]</red>"
+  modify: "<red>Usage: /ban -m <player|ID> [duration] [reason]</red> <gray>(also /mute, /warn)</gray>"
+
+
+history:
+  header: "<gold>Punishment history of <target></gold> <gray>(page <page>)</gray>"
+  empty: "<gray>Nothing found.</gray>"
+  line: "<gray>#<id> <date></gray> <white><type></white> <gray><length></gray> <white><reason></white> <gray>· <operator> ·</gray> <status>"
+
+staffhistory:
+  header: "<gold>Punishments issued by <target></gold> <gray>(page <page>)</gray>"
+  empty: "<gray>Nothing found.</gray>"
+  line: "<gray>#<id> <date></gray> <white><type></white> <yellow><target></yellow> <gray><length></gray> <white><reason></white> <gray>·</gray> <status>"
+
+iphistory:
+  header: "<gold>IP history of <target></gold> <gray>(page <page>)</gray>"
+  empty: "<gray>Nothing found.</gray>"
+  line: "<white><ip></white> <gray>first: <first> · last: <last></gray>"
+
+warnings:
+  header: "<gold>Warnings of <target></gold> <gray>(page <page>)</gray>"
+  empty: "<gray>No warnings.</gray>"
+  line: "<gray>#<id> <date></gray> <white><reason></white> <gray>· <operator></gray>"
+
+# /dupeip: one line with every account on the IP, coloured by state.
+dupeip:
+  header: "<gold>Accounts on <ip></gold> <gray>(<count>)</gray>"
+  empty: "<gray>No accounts have joined from <ip>.</gray>"
+  online: "<green><name></green>"
+  offline: "<gray><name></gray>"
+  muted: "<gold><name></gold>"
+  banned: "<red><name></red>"
+  separator: "<dark_gray>, </dark_gray>"
+  legend: "<dark_gray>[<green>online</green> <gray>offline</gray> <gold>muted</gold> <red>banned</red>]</dark_gray>"
+
+# /ipreport: online players who share their IP with other accounts. <accounts> is coloured like /dupeip.
+ipreport:
+  header: "<gold><count> of <online> online players share their IP with other accounts</gold> <gray>(page <page>)</gray>"
+  empty: "<gray>Nothing found.</gray>"
+  line: "<yellow><player></yellow> <gray>(<count>):</gray> <accounts>"
+  more: "<gray> and <count> more</gray>"
+
+lastuuid:
+  line: "<gray>UUID of</gray> <white><target></white><gray>:</gray> <white><uuid></white>"
+
+# /namehistory: names recorded since GraffBans was installed (and imported from LiteBans).
+namehistory:
+  header: "<gold>Names of <target></gold>"
+  empty: "<gray>Nothing found.</gray>"
+  line: "<white><name></white> <gray>first: <first> · last: <last></gray>"
+
+prunehistory:
+  confirm: "<yellow>This deletes every finished punishment (removed, expired, kicks) of <target> for good.</yellow> <gray>Type</gray> <white>/prunehistory <input> confirm</white> <gray>within <seconds> seconds to continue.</gray>"
+  nothing-to-confirm: "<red>Nothing to confirm.</red> <gray>Run</gray> <white>/prunehistory <input></white> <gray>first.</gray>"
+  done: "<green>Deleted <count> finished punishment(s) of <target>.</green>"
+
+# /graffbans allow, unlink, add-login
+allow:
+  added: "<green><target> may now join even if their IP is banned on another account.</green>"
+  already: "<gray><target> is already allowed.</gray>"
+  removed: "<green><target> is no longer allowed past IP bans.</green>"
+  is-allowed: "<green><target> may join although their IP is banned on another account.</green>"
+  not-allowed: "<gray><target> is not allowed past IP bans.</gray>"
+unlink:
+  done: "<green>Forgot <count> IP address(es) of <target>.</green> <gray>If they join from one again, it is linked again.</gray>"
+add-login:
+  done: "<green>Login of <target> recorded.</green>"
+
+# /graffbans info, servers
+info:
+  header: "<gold>GraffBans</gold>"
+  line: "<gray><key>:</gray> <white><value></white>"
+  server: Server
+  database: Database
+  pool: Connections
+  sync: Cross-server sync
+  templates: Templates
+  language: Language
+servers:
+  single: "<gray>Cross-server sync is off (H2 database): only this server uses it.</gray>"
+  header: "<gold><count> GraffBans instance(s) on this database</gold> <gray>(seen in the last 90 seconds)</gray>"
+  proxy: "<white><name></white> <gray>(proxy)</gray>"
+  server: "<white><name></white>"
+
+# /graffbans reset-templates, reset-database (console only)
+reset:
+  templates-confirm: "<yellow>Earlier punishments will no longer count for any template ladder (nobody is unbanned).</yellow> <gray>Type</gray> <white>/graffbans reset-templates confirm</white> <gray>within <seconds> seconds.</gray>"
+  templates-done: "<green><count> punishment(s) no longer count for template ladders.</green>"
+  database-confirm: "<red>This will <mode> every <types> punishment (<scope>).</red> <gray>Type</gray> <white><command></white> <gray>within <seconds> seconds to continue.</gray>"
+  database-done: "<green>Database reset (<mode>, <scope>): <count> punishment(s).</green>"
+  nothing-to-confirm: "<red>Nothing to confirm, or the command was different.</red>"
+  # Stored as the removal reason by mode:deactivate.
+  removed-reason: "Database reset"
+
+staffrollback:
+  done: "<green>Removed <count> punishment(s) issued by <target>.</green>"
+  none: "<gray><target> has no punishments in effect to roll back.</gray>"
+  # Asked when no duration is given, i.e. everything the staff member ever issued.
+  confirm: "<yellow>This removes all <count> punishment(s) issued by <target> that are still in effect.</yellow> <gray>Type</gray> <white>/staffrollback <input> confirm</white> <gray>within <seconds> seconds to continue.</gray>"
+  nothing-to-confirm: "<red>Nothing to confirm.</red> <gray>Run</gray> <white>/staffrollback <input></white> <gray>first.</gray>"
+  # Stored as the removal reason on each rolled-back punishment.
+  removed-reason: "Staff rollback"
+
+security:
+  # Shown to players instead of an IP address when security.hide-ips is on.
+  hidden-ip: "[IP hidden]"
+
+type:
+  ban: Ban
+  mute: Mute
+  warn: Warning
+  kick: Kick
+
+status:
+  active: "<red>active</red>"
+  expired: "<gray>expired</gray>"
+  removed: "<green>removed</green>"
+  kick: ""
+
+scope:
+  global: all servers
+
+duration:
+  permanent: Permanent
+  day: "<n>d"
+  hour: "<n>h"
+  minute: "<n>m"
+  second: "<n>s"
+
+# /graffbans import litebans
+import:
+  started: "<gray>Importing from LiteBans. On a large database this can take a few minutes; you get a message when it is done.</gray>"
+  started-dry-run: "<gray>Dry run: reading LiteBans' data without writing anything.</gray>"
+  connected: "<gray>Connected to <white><source></white>.</gray>"
+  # <step> is players, bans, mutes, warnings or kicks.
+  progress: "<gray>Read <white><count></white> rows: <step>.</gray>"
+  done: "<green>LiteBans import finished.</green>"
+  done-dry-run: "<yellow>Dry run finished, nothing was written. Without --dry-run the import would add:</yellow>"
+  summary-players: "<gray>Players:</gray> <white><players></white> <gray>· IP addresses:</gray> <white><ips></white>"
+  summary-type: "<gray><type>:</gray> <white><imported></white> <gray>new, <already> already imported</gray>"
+  skipped-wildcard: "<yellow><count> wildcard IP ban(s) were skipped: their address could not be read (GraffBans takes forms like 192.168.1.*).</yellow>"
+  skipped-invalid: "<yellow><count> row(s) without a usable player UUID or IP were skipped.</yellow>"
+  after: "<gray>Running it again is safe: only new rows are added. Imported mutes apply right away on this server and at the next join elsewhere; bans at the next login.</gray>"
+  templates:
+    added: "<green>Added <count> LiteBans template(s) to templates.yml:</green> <white><names></white> <gray>(the old file is kept as templates.yml.before-litebans-import)</gray>"
+    would-add: "<yellow>Would add <count> LiteBans template(s) to templates.yml:</yellow> <white><names></white>"
+    already-exists: "<gray>Template <white><template></white> is already in templates.yml; kept as it is.</gray>"
+    unsupported-type: "<yellow>Template <white><template></white> skipped: GraffBans has no <detail> yet.</yellow>"
+    bad-name: "<yellow>Template <white><template></white> skipped: names may only use a-z, 0-9, _ and -.</yellow>"
+    bad-duration: "<yellow>Template <white><template></white> skipped: unreadable duration <detail>.</yellow>"
+    # A template's own ban screen, actions, flags or permission; set the ban screen in the messages file instead.
+    left-out-options: "<yellow>Template <white><template></white> converted without:</yellow> <white><detail></white> <gray>(GraffBans does not have these; the ban screen is ban-screen in the messages file)</gray>"
+  error:
+    already-running: "<red>An import is already running.</red>"
+    folder-not-found: "<red>LiteBans' files were not found.</red> <gray>Put the LiteBans folder in plugins/ or set import.litebans-folder in config.yml. (<error>)</gray>"
+    read-config: "<red>Could not read a LiteBans file:</red> <gray><error></gray>"
+    unsupported-driver: "<red>This LiteBans database type cannot be imported:</red> <gray><error></gray>"
+    h2-file-not-found: "<red>LiteBans uses H2, but its database file is missing:</red> <gray><error></gray>"
+    h2-in-use: "<red>LiteBans' database file is in use.</red> <gray>Remove LiteBans.jar from plugins/, restart the server and try again.</gray>"
+    h2-driver: "<red>Could not load the H2 driver for LiteBans' file:</red> <gray><error></gray>"
+    h2-download: "<red>Could not download the H2 driver for LiteBans' file:</red> <gray><error></gray> <gray>Put h2-1.4.197.jar in plugins/GraffBans/lib/ and try again.</gray>"
+    connect: "<red>Could not connect to LiteBans' database:</red> <gray><error></gray>"
+    # The username/password in LiteBans' config.yml were refused, e.g. it was copied from another machine.
+    auth: "<red>LiteBans' database refused the username or password in LiteBans' config.yml.</red> <gray>Check the sql section there (it must work from this machine): <error></gray>"
+    invalid-prefix: "<red>LiteBans' table prefix is not valid:</red> <gray><error></gray>"
+    no-tables: "<red>No LiteBans tables found:</red> <gray><error></gray>"
+    failed: "<red>The import stopped with an error; check the console.</red> <gray><error></gray>"
+    templates-write: "<red>The punishments were imported, but the templates could not be added:</red> <gray><error></gray>"
+
+# /graffbans reload
+reload:
+  done: "<green>GraffBans reloaded: config.yml, messages and <templates> template(s).</green>"
+  # <settings> lists changed settings that only apply after a restart.
+  restart-needed: "<yellow>Restart the server to apply:</yellow> <white><settings></white>"
+  failed: "<red>Reload failed, the old settings stay in use:</red> <gray><error></gray>"
+
+# Staff group limits (config.yml limits section)
+limits:
+  reduced: "<yellow>Your limit is <limit>, so the duration was reduced to that.</yellow>"
+  too-long: "<red>You may give at most <limit>.</red>"
+  template-required: "<red>You can only punish with a template:</red> <white><templates></white>"
+  cooldown-staff: "<red>Wait <time> before using /<command> again.</red>"
+  cooldown-target: "<red><target> was punished a moment ago. Wait <time>.</red>"
+  cooldown-redo: "<red><target> was unbanned or unmuted a moment ago. Wait <time>.</red>"
+
+
+# Staff notices (config.yml notify section)
+notify:
+  banned-join: "<dark_gray>[Staff]</dark_gray> <red><player></red> <gray>tried to join but is banned:</gray> <white><reason></white> <gray>(<duration>)</gray>"
+  muted-chat: "<dark_gray>[Staff]</dark_gray> <yellow><player></yellow> <gray>is muted and tried to say:</gray> <white><message></white>"
+  alts-join: "<dark_gray>[Staff]</dark_gray> <yellow><player></yellow> <gray>joined from the same IP as banned account(s):</gray> <red><accounts></red>"
+
+# /checkban, /checkmute, /checkwarn
+check:
+  header-ban: "<red><target> is banned:</red>"
+  header-mute: "<red><target> is muted:</red>"
+  header-warn: "<yellow>Warnings of <target> in effect:</yellow>"
+  line: "<gray>#<id> <date></gray> <white><reason></white> <gray>· <operator> · time left:</gray> <white><duration></white> <gray>· <scope></gray><ip>"
+  ip-based: " <gray>· IP</gray>"
+  no-id: "<red>No such punishment: <input></red>"
+
+# /banlist, /mutelist, /warnlist (all bans / mutes / warnings, newest first, like LiteBans)
+list:
+  header-ban: "<gold>Bans</gold> <gray>(page <page>)</gray>"
+  header-mute: "<gold>Mutes</gold> <gray>(page <page>)</gray>"
+  header-warn: "<gold>Warnings</gold> <gray>(page <page>)</gray>"
+
+
+# /lockdown
+lockdown:
+  # Shown to players who may not join while a lockdown is on.
+  screen: "<red>The server is closed for now.</red>\n\n<gray>Reason:</gray> <white><reason></white>"
+  started: "<yellow>Lockdown on (<scope>) by <operator>:</yellow> <white><reason></white> <gray>Only players with graffbans.lockdown.bypass can join.</gray>"
+  ended: "<green>Lockdown (<scope>) ended by <operator>.</green>"
+  not-on: "<gray>There is no lockdown (<scope>).</gray>"
+  none: "<gray>No lockdown is on.</gray>"
+  status: "<yellow>Lockdown on (<scope>) since <date> by <operator>:</yellow> <white><reason></white>"
