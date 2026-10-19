@@ -358,3 +358,58 @@ lockdown:
   not-on: "<gray>Kilit yok (<scope>).</gray>"
   none: "<gray>Açık kilit yok.</gray>"
   status: "<yellow>Kilit açık (<scope>), <date> tarihinden beri, <operator> tarafından:</yellow> <white><reason></white>"
+
+# /graffbans web (panel hesapları, sohbet mesajları)
+web-command:
+  usage: "<red>Kullanım: /graffbans web register [oyuncu] [rol] | disable <oyuncu> | enable <oyuncu> | list</red>"
+  # <link> tek kullanımlık kurulum linki; sadece isteyen oyuncu görür.
+  link: "<green>Panel kurulum linkin (tek kullanımlık, 10 dakika geçerli):</green> <open><aqua><u><link></u></aqua></open> <gray>Kimseyle paylaşma.</gray>"
+  link-for: "<green><player> için kurulum linki (<role>, tek kullanımlık, 10 dakika geçerli):</green> <white><link></white> <gray>Sadece ona ver.</gray>"
+  no-role: "<red>Panel rolün yok.</red> <gray>Yetkililerin bir graffbans.web.<rol> izni olmalı (örn. graffbans.web.moderator).</gray>"
+  unknown-role: "<red><role> adında bir panel rolü yok.</red> <gray>Roller: <roles></gray>"
+  console-needs-player: "<red>Konsoldan: /graffbans web register <oyuncu> <rol></red>"
+  not-found: "<red><player> oyuncusunun panel hesabı yok.</red>"
+  disabled: "<green><player> oyuncusunun panel hesabı kapatıldı; oturumları sonlandı.</green>"
+  enabled: "<green><player> oyuncusunun panel hesabı yeniden açıldı.</green>"
+  list-header: "<gold>Panel hesapları (<count>)</gold>"
+  list-line: "<gray>-</gray> <white><player></white> <gray>(<role>)</gray> <status>"
+  list-active: "<green>aktif</green>"
+  list-off: "<red>kapalı</red>"
+  panel-off: "<yellow>Not: panel bu sunucuda çalışmıyor</yellow> <gray>(config.yml'de web.enabled). Link, panelin çalıştığı yerde açılır.</gray>"
+
+# Web paneli metinleri (düz metin, MiniMessage değil: panel bunları kaçışlı basar).
+web:
+  title: "GraffBans Paneli"
+  login:
+    heading: "Yetkili girişi"
+    username: "Minecraft adı"
+    password: "Şifre"
+    submit: "Giriş yap"
+    wrong: "Ad veya şifre yanlış."
+    locked: "Çok fazla yanlış şifre. Bu hesap 15 dakikalığına kilitlendi."
+    disabled: "Bu hesap kapalı."
+    rate-limited: "Adresinden çok fazla deneme yapıldı. Bir dakika bekleyip tekrar dene."
+    no-account: "Hesabın yok mu? Oyunda /graffbans web register yazarak kurulum linki al."
+    insecure: "Bu bağlantı şifreli değil (HTTP). Sunucu sahibinden paneli HTTPS arkasına almasını iste."
+  setup:
+    heading: "Panel şifreni belirle"
+    intro: "Panel hesabı:"
+    role: "Rol"
+    password: "Yeni şifre (en az 10 karakter)"
+    repeat: "Şifreyi tekrar yaz"
+    submit: "Kaydet ve devam et"
+    invalid: "Bu kurulum linki artık geçerli değil. Yenisi için oyunda /graffbans web register yaz."
+    weak: "Şifre 10 ile 128 karakter arasında olmalı."
+    mismatch: "İki şifre aynı değil."
+    done: "Şifren kaydedildi. Artık giriş yapabilirsin."
+  nav:
+    dashboard: "Ana sayfa"
+    logout: "Çıkış"
+  dashboard:
+    heading: "Hoş geldin"
+    role: "Rolün"
+    abilities: "Yapabildiklerin"
+    coming: "Oyuncu sayfaları, cezalar ve itirazlar sıradaki adımda geliyor."
+  error:
+    not-found: "Böyle bir sayfa yok."
+    forbidden: "Rolün bu sayfayı açamıyor."

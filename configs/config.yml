@@ -154,3 +154,40 @@ notify:
   alts-on-join: true
   # The same player triggers the same notice at most once per this time.
   throttle: 10m
+
+web:
+  # The built-in web panel (staff accounts, appeals). Turn it on on ONE server only: on a network the
+  # proxy, otherwise the server itself. All servers share the database, so the panel sees everything.
+  enabled: false
+  # 127.0.0.1 = only reachable from this machine; put Nginx, Caddy or a Cloudflare Tunnel in front for
+  # HTTPS (recommended). 0.0.0.0 = reachable from outside directly (plain HTTP; the panel warns about it).
+  bind: 127.0.0.1
+  port: 8150
+  # The address players and staff open, used in setup and appeal links, e.g. https://panel.example.com
+  base-url: "http://localhost:8150"
+  # true only behind a reverse proxy on this machine: then the panel trusts its X-Forwarded-For /
+  # X-Forwarded-Proto headers for the visitor's IP and HTTPS.
+  trust-proxy-headers: false
+  # A login lasts this long, and ends earlier after this much inactivity.
+  session-length: 12h
+  idle-timeout: 1h
+  # Panel roles. Staff get one with /graffbans web register (in game: their highest
+  # graffbans.web.<role> permission; from the console: given in the command).
+  # rank: higher may manage lower. limits-group: the config.yml limits group their panel punishments follow.
+  # Abilities: view, punish, punish.template-only, unpunish, modify, delete, appeals.reply, appeals.decide,
+  #            see-ips, audit, users
+  roles:
+    owner:
+      rank: 100
+      abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, see-ips, audit, users]
+    admin:
+      rank: 75
+      abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, see-ips, audit]
+    moderator:
+      rank: 50
+      limits-group: moderator
+      abilities: [view, punish, unpunish, modify, appeals.reply, appeals.decide]
+    helper:
+      rank: 25
+      limits-group: helper
+      abilities: [view, punish.template-only, appeals.reply]

@@ -358,3 +358,58 @@ lockdown:
   not-on: "<gray>There is no lockdown (<scope>).</gray>"
   none: "<gray>No lockdown is on.</gray>"
   status: "<yellow>Lockdown on (<scope>) since <date> by <operator>:</yellow> <white><reason></white>"
+
+# /graffbans web (panel accounts, chat messages)
+web-command:
+  usage: "<red>Usage: /graffbans web register [player] [role] | disable <player> | enable <player> | list</red>"
+  # <link> is the one-time setup link; only the player who asked sees it.
+  link: "<green>Your panel setup link (works once, for 10 minutes):</green> <open><aqua><u><link></u></aqua></open> <gray>Do not share it.</gray>"
+  link-for: "<green>Setup link for <player> (<role>, works once, for 10 minutes):</green> <white><link></white> <gray>Give it only to them.</gray>"
+  no-role: "<red>You have no panel role.</red> <gray>Staff need a graffbans.web.<role> permission (e.g. graffbans.web.moderator).</gray>"
+  unknown-role: "<red>No panel role called <role>.</red> <gray>Roles: <roles></gray>"
+  console-needs-player: "<red>From the console: /graffbans web register <player> <role></red>"
+  not-found: "<red><player> has no panel account.</red>"
+  disabled: "<green>Panel account of <player> turned off; their sessions ended.</green>"
+  enabled: "<green>Panel account of <player> turned on again.</green>"
+  list-header: "<gold>Panel accounts (<count>)</gold>"
+  list-line: "<gray>-</gray> <white><player></white> <gray>(<role>)</gray> <status>"
+  list-active: "<green>active</green>"
+  list-off: "<red>off</red>"
+  panel-off: "<yellow>Note: the panel is not running on this server</yellow> <gray>(web.enabled in config.yml). The link works where it runs.</gray>"
+
+# Web panel texts (plain text, not MiniMessage: the panel escapes them).
+web:
+  title: "GraffBans Panel"
+  login:
+    heading: "Staff login"
+    username: "Minecraft name"
+    password: "Password"
+    submit: "Log in"
+    wrong: "Wrong name or password."
+    locked: "Too many wrong passwords. This account is locked for 15 minutes."
+    disabled: "This account is turned off."
+    rate-limited: "Too many attempts from your address. Wait a minute and try again."
+    no-account: "No account yet? In game, type /graffbans web register to get a setup link."
+    insecure: "This connection is not encrypted (HTTP). Ask the server owner to put the panel behind HTTPS."
+  setup:
+    heading: "Set your panel password"
+    intro: "Panel account for"
+    role: "Role"
+    password: "New password (at least 10 characters)"
+    repeat: "Repeat the password"
+    submit: "Save and continue"
+    invalid: "This setup link is not valid anymore. Type /graffbans web register in game for a new one."
+    weak: "The password must be 10 to 128 characters."
+    mismatch: "The two passwords are not the same."
+    done: "Your password is set. You can log in now."
+  nav:
+    dashboard: "Dashboard"
+    logout: "Log out"
+  dashboard:
+    heading: "Welcome"
+    role: "Your role"
+    abilities: "You can"
+    coming: "Player pages, punishments and appeals come next."
+  error:
+    not-found: "This page does not exist."
+    forbidden: "Your role cannot open this page."
