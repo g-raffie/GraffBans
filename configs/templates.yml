@@ -23,8 +23,8 @@
 #                they start with "console:". $playerName, $playerUUID, $id, $reason, $executor are filled in.
 #                On a Velocity proxy only proxy commands can be run this way.
 #
-# Every earlier punishment with the template counts, also expired and removed (unban) ones, as in
-# LiteBans; for warnings only those still in effect. Use expire-ladder so old offences are forgotten.
+# Every earlier punishment with the template counts, also expired and removed (unban) ones;
+# for warnings only those still in effect. Use expire-ladder so old offences are forgotten.
 # /staffrollback, /unban -d, /prunehistory and /graffbans reset-templates take punishments off the ladder.
 #
 # template-groups: templates sharing one ladder. Each earlier punishment with a template in "weights"

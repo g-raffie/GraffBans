@@ -83,7 +83,7 @@ compatibility:
   litebans-permissions: true
 
 limits:
-  # Staff groups, like LiteBans' durations.limits (its settings can be pasted here as they are).
+  # Staff groups: limits per rank. (A LiteBans durations.limits section can also be pasted here as it is.)
   # A staff member is in every group whose permission they have; "none" = everyone.
   # tempban / tempmute: the longest temporary ban / mute. The highest of their groups applies.
   #   Permanent punishments are not limited here: they need the /ban or /mute permission.
@@ -91,7 +91,7 @@ limits:
   # cooldown-ban / -mute / -warn / -kick: time between two punishments of that kind, both for the
   #   staff member and for the target. The lowest of their groups applies; 5s if a group sets none.
   # cooldown-redo: how soon after an /unban or /unmute the same player may be banned or muted again
-  #   (LiteBans' cooldown_redo). The lowest of their groups applies; 1s if a group sets none.
+  #   The lowest of their groups applies; 1s if a group sets none.
   # graffbans.group.unlimited skips duration limits and require-template; graffbans.cooldown.bypass
   # (or .ban / .mute / .warn / .kick) skips cooldowns. Operators have both. Use "groups: {}" for no limits.
   groups:
@@ -118,7 +118,7 @@ limits:
   console-cooldown: 1s
 
 notify:
-  # Staff notices, like LiteBans' notify section. On a network they reach every server.
+  # Staff notices. On a network they reach every server.
   # A banned player tried to join. Seen with graffbans.notify.banned-join.
   banned-join: true
   # A muted player tried to chat or use a blocked command. Seen with graffbans.notify.muted-chat.

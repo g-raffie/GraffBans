@@ -12,7 +12,7 @@ ban-screen: |-
   <gray>Kalan süre:</gray> <white><duration></white>
   <gray>Ceza no:</gray> <white>#<id></white>
 
-# Kalıcı banlar için ayrı ekran (LiteBans banned_message_permanent). Boş bırakılırsa ban-screen kullanılır.
+# Kalıcı banlar için ayrı ekran. Boş bırakılırsa ban-screen kullanılır.
 ban-screen-permanent: ""
 
 kick-screen: |-
@@ -25,7 +25,7 @@ kick-screen: |-
 banned-from-server: "<red><server> sunucusundan yasaklısın.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white> <gray>· Ceza no:</gray> <white>#<id></white>"
 
 muted: "<red>Susturuldun.</red> <gray>Sebep:</gray> <white><reason></white> <gray>· Kalan:</gray> <white><duration></white>"
-# Kalıcı susturmalar için (LiteBans muted_permanent). Boşsa muted kullanılır.
+# Kalıcı susturmalar için. Boşsa muted kullanılır.
 muted-permanent: ""
 
 warned: "<yellow>Uyarı aldın:</yellow> <white><reason></white> <gray>(<operator>)</gray>"
@@ -40,7 +40,7 @@ broadcast:
   tempban: "<red><target></red> <gray><white><duration></white> süreyle yasaklandı. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
   mute: "<gold><target></gold> <gray>kalıcı olarak susturuldu. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
   tempmute: "<gold><target></gold> <gray><white><duration></white> süreyle susturuldu. Yetkili:</gray> <white><operator></white> <gray>Sebep:</gray> <white><reason></white>"
-  # IP ban/susturma duyuruları (LiteBans broadcast_ip_ban vb.). Boşsa ban / tempban / mute / tempmute kullanılır.
+  # IP ban/susturma duyuruları. Boşsa ban / tempban / mute / tempmute kullanılır.
   ipban: ""
   tempipban: ""
   ipmute: ""
@@ -322,7 +322,7 @@ check:
   ip-based: " <gray>· IP</gray>"
   no-id: "<red>Böyle bir ceza yok: <input></red>"
 
-# /banlist, /mutelist, /warnlist (tüm banlar / susturmalar / uyarılar, en yeni önce; LiteBans gibi)
+# /banlist, /mutelist, /warnlist (tüm banlar / susturmalar / uyarılar, en yeni önce)
 list:
   header-ban: "<gold>Banlar</gold> <gray>(sayfa <page>)</gray>"
   header-mute: "<gold>Susturmalar</gold> <gray>(sayfa <page>)</gray>"

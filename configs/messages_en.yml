@@ -12,7 +12,7 @@ ban-screen: |-
   <gray>Time left:</gray> <white><duration></white>
   <gray>Ban ID:</gray> <white>#<id></white>
 
-# A separate screen for permanent bans (LiteBans banned_message_permanent). Empty = ban-screen is used.
+# A separate screen for permanent bans. Empty = ban-screen is used.
 ban-screen-permanent: ""
 
 kick-screen: |-
@@ -25,7 +25,7 @@ kick-screen: |-
 banned-from-server: "<red>You are banned from <server>.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white> <gray>· Ban ID:</gray> <white>#<id></white>"
 
 muted: "<red>You are muted.</red> <gray>Reason:</gray> <white><reason></white> <gray>· Time left:</gray> <white><duration></white>"
-# For permanent mutes (LiteBans muted_permanent). Empty = muted is used.
+# For permanent mutes. Empty = muted is used.
 muted-permanent: ""
 
 warned: "<yellow>You have been warned:</yellow> <white><reason></white> <gray>(<operator>)</gray>"
@@ -40,7 +40,7 @@ broadcast:
   tempban: "<red><target></red> <gray>was banned for <white><duration></white> by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
   mute: "<gold><target></gold> <gray>was permanently muted by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
   tempmute: "<gold><target></gold> <gray>was muted for <white><duration></white> by</gray> <white><operator></white><gray>. Reason:</gray> <white><reason></white>"
-  # IP ban/mute announcements (LiteBans broadcast_ip_ban etc.). Empty = ban / tempban / mute / tempmute are used.
+  # IP ban/mute announcements. Empty = ban / tempban / mute / tempmute are used.
   ipban: ""
   tempipban: ""
   ipmute: ""
@@ -322,7 +322,7 @@ check:
   ip-based: " <gray>· IP</gray>"
   no-id: "<red>No such punishment: <input></red>"
 
-# /banlist, /mutelist, /warnlist (all bans / mutes / warnings, newest first, like LiteBans)
+# /banlist, /mutelist, /warnlist (all bans / mutes / warnings, newest first)
 list:
   header-ban: "<gold>Bans</gold> <gray>(page <page>)</gray>"
   header-mute: "<gold>Mutes</gold> <gray>(page <page>)</gray>"
