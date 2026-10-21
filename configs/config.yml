@@ -194,6 +194,25 @@ discord:
   staff-report-webhook: ""
   staff-report-day: monday
   staff-report-time: "09:00"
+  # The GraffBans Discord bot: new appeals and reports arrive with buttons, so staff can accept or deny an appeal
+  # and claim or close a report right in Discord. It runs only on the server with the panel (web.enabled) and
+  # never reads messages. Setup (wiki: Discord Bot): Discord Developer Portal > New Application > Bot > Reset
+  # Token, copy it here; then OAuth2 > URL Generator: scope "bot", permissions View Channels, Send Messages,
+  # Embed Links; open the link and add the bot to your Discord server. Turn on Discord's Developer Mode
+  # (User Settings > Advanced) to copy channel and role IDs with a right-click.
+  bot:
+    # Keep it secret: anyone with the token controls the bot. Empty = no bot. Changing it needs a restart.
+    token: ""
+    # Channel ID for new appeals (Accept / Deny). Replies and decisions go there too. Empty = appeals-webhook.
+    appeals-channel: ""
+    # Channel ID for new reports (Claim / Resolved / Reject). Set this OR reports-webhook, not both.
+    reports-channel: ""
+    # Who may press the buttons: Discord role ID: [abilities]. appeals.decide = Accept / Deny,
+    # reports = Claim / Resolved / Reject. Members without a listed role are told they may not.
+    # Example:
+    #   "123456789012345678": [appeals.decide, reports]
+    #   "234567890123456789": [reports]
+    roles: {}
 
 web:
   # The built-in web panel (staff accounts, appeals). Turn it on on ONE server only: on a network the

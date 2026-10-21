@@ -71,6 +71,7 @@ and silent punishments are never shown there.
 | Alts | `/dupeip`, `/ipreport`, IP history, `/namehistory`, exceptions for shared households |
 | Staff | Rank limits and cooldowns, "templates only" for helpers, staff notices (banned join, muted chat, banned alt joined), full rollback |
 | Reports | `/report` for players, a report queue in game and in the panel, Discord notices; punishing the reported player closes the report _(next beta)_ |
+| Discord bot | Accept appeals and close reports with buttons in Discord; who may press what comes from Discord roles _(next beta)_ |
 | Staff report | What each staff member did: punishments, removals, appeal decisions, closed reports, punishments overturned on appeal; weekly Discord summary _(next beta)_ |
 | Server | `/lockdown` that survives restarts, per-server or network-wide |
 | Chat | Muted players cannot dodge with `/msg`, `/r`, `/mail` and similar (configurable, blocks `/plugin:command` too) |
@@ -147,6 +148,7 @@ Found a security problem? Report it privately, see [SECURITY.md](SECURITY.md).
 | [Web Panel](https://github.com/g-raffie/GraffBans/wiki/Web-Panel) | Setting up the panel, HTTPS, roles, two-step login |
 | [Appeals](https://github.com/g-raffie/GraffBans/wiki/Appeals) | Appeals and Discord notices |
 | [Reports](https://github.com/g-raffie/GraffBans/wiki/Reports) | `/report`, the report queue, the staff report (next beta) |
+| [Discord Bot](https://github.com/g-raffie/GraffBans/wiki/Discord-Bot) | Setting up the bot, buttons, Discord roles (next beta) |
 | [Troubleshooting](https://github.com/g-raffie/GraffBans/wiki/Troubleshooting) | Common problems |
 
 Default files: [`config.yml`](configs/config.yml) · [`messages_en.yml`](configs/messages_en.yml) ·

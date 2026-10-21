@@ -13,6 +13,11 @@
   punishments later overturned on appeal.
 - Optional weekly summary in Discord: `discord.staff-report-webhook`, `staff-report-day`, `staff-report-time`.
 
+**Discord bot**
+- New appeals and reports arrive with buttons: accept or deny an appeal, claim, resolve or reject a report
+  in Discord. Who may press what comes from Discord roles. Built in, nothing else to host; runs on the panel's server.
+- New: `discord.bot` section (`token`, `appeals-channel`, `reports-channel`, `roles`).
+
 **Upgrading**
 - New panel abilities `reports` (claim and close reports) and `staff-report`. They are in the default roles; if you
   wrote your own `web.roles`, add them where you want them.
