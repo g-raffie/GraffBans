@@ -172,11 +172,28 @@ appeals:
   # Appeals one address may send per hour.
   per-hour: 3
 
+reports:
+  # /report <player> <reason>: players report rule breakers. Staff with graffbans.notify.report see each
+  # report on every server; /reports and the panel list them. Punishing the reported player closes their
+  # open reports. Players need graffbans.report (everyone has it unless you take it away).
+  enabled: true
+  # A player may send one report per this time.
+  cooldown: 1m
+
 discord:
   # A Discord channel webhook that gets appeal notices: new appeal, the player's replies, the decision.
   # In Discord: channel settings > Integrations > Webhooks > New Webhook > Copy Webhook URL. Empty = off.
   # Only the server that runs the panel sends them.
   appeals-webhook: ""
+  # A webhook for player reports (/report): who reported whom, why, and on which server. Empty = off.
+  # The server that handles /report sends it (on a network: the proxy).
+  reports-webhook: ""
+  # A weekly staff report in a Discord channel: what each staff member did in the 7 days before (punishments,
+  # removals, appeal decisions, closed reports, punishments overturned on appeal). Empty = off. Sent by the server
+  # that runs the panel, once a week on this day and time (server time zone); the panel shows it any time.
+  staff-report-webhook: ""
+  staff-report-day: monday
+  staff-report-time: "09:00"
 
 web:
   # The built-in web panel (staff accounts, appeals). Turn it on on ONE server only: on a network the
@@ -199,24 +216,25 @@ web:
   # rank: higher may manage lower. limits-group: the config.yml limits group their panel punishments follow.
   # require-2fa: members must turn on two-step login (an authenticator app) before they can use the panel.
   # Abilities: view, punish, punish.template-only, unpunish, modify, delete, appeals.reply, appeals.decide,
-  #            see-ips, audit, users
+  #            see-ips, audit, users, reports (claim and close player reports; viewing them needs only view),
+  #            staff-report (what each staff member did)
   roles:
     owner:
       rank: 100
       require-2fa: true
-      abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, see-ips, audit, users]
+      abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, reports, see-ips, audit, staff-report, users]
     admin:
       rank: 75
       require-2fa: true
-      abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, see-ips, audit]
+      abilities: [view, punish, unpunish, modify, delete, appeals.reply, appeals.decide, reports, see-ips, audit, staff-report]
     moderator:
       rank: 50
       limits-group: moderator
-      abilities: [view, punish, unpunish, modify, appeals.reply, appeals.decide]
+      abilities: [view, punish, unpunish, modify, appeals.reply, appeals.decide, reports]
     helper:
       rank: 25
       limits-group: helper
-      abilities: [view, punish.template-only, appeals.reply]
+      abilities: [view, punish.template-only, appeals.reply, reports]
   # A public ban list at <base-url>/bans (also mutes, warnings, kicks and a player search), like a LiteBans web
   # page. IP addresses and silent (-s) punishments are never shown. Appeals work whether this is on or not.
   public-pages: false

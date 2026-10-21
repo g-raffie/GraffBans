@@ -70,6 +70,8 @@ and silent punishments are never shown there.
 | History | `/history`, `/staffhistory`, `/checkban`, `/banlist`, punishment lookup |
 | Alts | `/dupeip`, `/ipreport`, IP history, `/namehistory`, exceptions for shared households |
 | Staff | Rank limits and cooldowns, "templates only" for helpers, staff notices (banned join, muted chat, banned alt joined), full rollback |
+| Reports | `/report` for players, a report queue in game and in the panel, Discord notices; punishing the reported player closes the report _(next beta)_ |
+| Staff report | What each staff member did: punishments, removals, appeal decisions, closed reports, punishments overturned on appeal; weekly Discord summary _(next beta)_ |
 | Server | `/lockdown` that survives restarts, per-server or network-wide |
 | Chat | Muted players cannot dodge with `/msg`, `/r`, `/mail` and similar (configurable, blocks `/plugin:command` too) |
 | Privacy | Player IPs hidden from players by default |
@@ -144,10 +146,12 @@ Found a security problem? Report it privately, see [SECURITY.md](SECURITY.md).
 | [Switching from LiteBans](https://github.com/g-raffie/GraffBans/wiki/Switching-from-LiteBans) | One-command import |
 | [Web Panel](https://github.com/g-raffie/GraffBans/wiki/Web-Panel) | Setting up the panel, HTTPS, roles, two-step login |
 | [Appeals](https://github.com/g-raffie/GraffBans/wiki/Appeals) | Appeals and Discord notices |
+| [Reports](https://github.com/g-raffie/GraffBans/wiki/Reports) | `/report`, the report queue, the staff report (next beta) |
 | [Troubleshooting](https://github.com/g-raffie/GraffBans/wiki/Troubleshooting) | Common problems |
 
 Default files: [`config.yml`](configs/config.yml) · [`messages_en.yml`](configs/messages_en.yml) ·
 [`messages_tr.yml`](configs/messages_tr.yml) · [`templates.yml`](configs/templates.yml)
+(these follow the newest development version; settings for the next beta are listed in the [changelog](CHANGELOG.md))
 
 <sub>Screenshots show the panel with example data. The ban screen and the Discord notice are recreated with
 the exact texts GraffBans shows.</sub>

@@ -1,5 +1,24 @@
 # Changelog
 
+## Next beta (not released yet)
+
+**Reports**
+- `/report <player> <reason>` for every player; staff with `graffbans.notify.report` see it on every server.
+- `/reports` to list, claim, resolve or reject reports in game; a **Reports** page in the panel.
+- Punishing the reported player closes their open reports and links them to the punishment.
+- New: `reports` section in config.yml (`enabled`, `cooldown`), `discord.reports-webhook`.
+
+**Staff report**
+- A **Staff** page in the panel: what each staff member did in the last day, week, month or 90 days, including
+  punishments later overturned on appeal.
+- Optional weekly summary in Discord: `discord.staff-report-webhook`, `staff-report-day`, `staff-report-time`.
+
+**Upgrading**
+- New panel abilities `reports` (claim and close reports) and `staff-report`. They are in the default roles; if you
+  wrote your own `web.roles`, add them where you want them.
+- New permissions: `graffbans.report` (everyone), `graffbans.reports`, `graffbans.notify.report` (op).
+- New messages work without touching your messages file: missing ones come from the built-in defaults.
+
 ## 0.1.0-beta.1 (first public beta)
 
 The first version anyone can try. Free during the beta; see [LICENSE.md](LICENSE.md).
